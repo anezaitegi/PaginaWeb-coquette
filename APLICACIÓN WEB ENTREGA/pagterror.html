@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Aqui pagina responsiva-->
+	<link rel="stylesheet" href="style.css"> <!-- Enlace que se liga al css para editar la pagina web-->
+	<link rel="icon" type="image/jpg" href="img/logocineusurbil.png"> <!-- icono de la pagina -->
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+		rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<!-- pagina que use para agregar iconos a nuestra pagina web -->
+	<title>Cine Usurbil|Películas</title>
+</head>
+
+<body>
+
+	<!-- Barra de navegación y header -->
+    <header>
+
+        <!--Se verá solo en pantallas grandes-->
+        <div class="container-grande">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <div class="menu-item">
+                    <a href="./index.html" target="_blank" >Películas</a>
+                </div>
+                <div class="menu-item">
+                    <input type="checkbox" id="genero-grande">
+                    <label for="genero-grande" class="bot-genero activo">Géneros</label>
+                    <div class="dropdown-genero">
+                        <div class="genero-item">
+                            <a href="./pagterror.html" target="_blank" class="activo">Terror</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagdrama.html" target="_blank">Drama</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagcomedia.html" target="_blank">Comedia</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagscifi.html" target="_blank">Sci - Fi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="./cines.html" target="_blank">Cines</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./pagtickets.html" target="_blank">Tickets</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./index.html" target="_blank">Login || Sign in</a>
+                </div>
+            </nav>
+        </div>
+
+        <!--Se verá solo en pantallas de móvil-->
+        <div class="container-movil">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <input type="checkbox" id="menu">
+                <label for="menu" class="bot-submenu"> ☰ </label>
+                <div class="dropdown-menu">
+                    <div class="menu-item">
+                        <a href="./index.html" target="_blank">Películas</a>
+                    </div>
+                    <div class="menu-item">
+                        <span class="">Géneros</span>
+                        <input type="checkbox" id="genero">
+                        <label for="genero" class="bot-genero"> ☰ </label>
+                        <div class="dropdown-genero">
+                            <div class="genero-item">
+                                <a href="./pagterror.html" target="_blank" class="activo">Terror</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagdrama.html" target="_blank">Drama</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagcomedia.html" target="_blank">Comedia</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagscifi.html" target="_blank">Sci - Fi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./cines.html" target="_blank">Cines</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./pagtickets.html" target="_blank">Tickets</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./index.html" target="_blank">Login || Sign in</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+	<main>
+		<!-- Pelicula Principal-->
+        <div class="principal" id="pagterror">
+            <div class="contenedor">
+                <h1 class="titulo">Drácula de Bram Stoker</h1>
+                <h3>
+                    Antes de convertirse en vampiro, el conde Drácula era el príncipe Vlad, quien tras conocer la muerte
+					de su prometida, vendió su alma al diablo.
+					Cuatro siglos después, en Londres, encuentra a Mina, reencarnación de su amor perdido.
+                </h3>
+                <div class="botones">
+                    <button class="boton"><i class="fa-solid fa-ticket"></i>¡Compra ya tus entradas!</button>
+                    <button class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+                </div>
+            </div>
+        </div>
+		<!-- Peliculas -->
+		<div class="titulo">
+			<h1>Los más vistos en Terror </h1>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/El_resplandor-407954060-large.jpg"
+								alt="Carátula de la película El Resplandor">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/A3q03BBwMp4?si=WMyDFHfbvXIhsjEh"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>El resplandor (1980), <br>Stanley Kubrick.</h2>
+							<p>Jack Torrance se traslada, junto a su mujer y a su hijo, al impresionante hotel Overlook,
+								en
+								Colorado, para encargarse del mantenimiento del mismo durante la temporada invernal, en
+								la
+								que permanece cerrado y aislado por la nieve. Su idea es esrcibir su novela al tiempo
+								que
+								cuida de las instalaciones durante esos largos y solitarios meses de invierno, pero
+								desde su
+								llegada al hotel, Jack comienza a padecer inquietantes transtornos de personalidad, al
+								mismo
+								tiempo que en el lugar comienzan a suceder diversos fenómenos paranormales.
+							</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 2h 26m</h3>
+								<div class="borde-genero">
+									<h4>TERROR</h4>
+								</div>
+								<h3>Apta sólo para mayores de 18 años.</h3>
+							</div>
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/draculaposter1.jpg" alt="Carátula de la película Drácula de Bram Stoker">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/CjgwUB1CXek?si=2fzGg0Inxdzah7N8"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>Drácula de Bram Stoker (1992),<br> Francis Ford Coppola.</h2>
+							<p>
+								Antes de convertirse en vampiro, el conde Drácula era el príncipe Vlad, quien tras
+								conocer
+								la muerte de su prometida, vendió su alma al diablo. Cuatro siglos después, en Londres,
+								encuentra a Mina, reencarnación de su amor perdido.
+							</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 2h 08m</h3>
+								<div class="borde-genero">
+									<h4>TERROR</h4>
+								</div>
+								<h3>Apta sólo para mayores de 18 años.</h3>
+							</div>
+
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/psicosisposter1.jpg" alt="Carátula de la película Psicosis">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/inwqMQIFrrA?si=GBy9rEerLn-AEStw"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>Psicosis (1960),<br> Alfred Hitchcock.</h2>
+							<p>
+								Una joven secretaria, tras cometer un robo, se marcha de la ciudad y conduce durante
+								horas,
+								parando para descansar en un pequeño motel de carretera regentado por un joven llamado
+								Norman. Todo parece normal y tranquilo en el apartado motel y en la casa de al lado en
+								la
+								que viven Norman y su madre pero, mientras está en la ducha, la joven es asesinada
+								salvajemente a cuchilladas.
+							</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 1h 49m</h3>
+								<div class="borde-genero">
+									<h4>TERROR</h4>
+								</div>
+								<h3>Apta sólo para mayores de 18 años.</h3>
+							</div>
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/cisnenegroposter1.jpg" alt="Carátula de la película Cisne Negro">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/uPnB_Bjh5fo?si=yOFsNpOI0dMHyGiz"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>Cisne Negro (2010),<br> Darren Aronofsky.</h2>
+							<p>
+								Nina, una brillante bailarina que forma parte de una compañía de ballet de Nueva York,
+								vive
+								completamente absorbida por la danza. La presión de su controladora madre, la rivalidad
+								con
+								su compañera Lily y las exigencias del severo director se irán incrementando a medida
+								que se
+								acerca el día del estreno. Esta tensión provoca en Nina un agotamiento nervioso y una
+								confusión mental que la incapacitan para distinguir entre realidad y ficción.
+							</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 1h 49m</h3>
+								<div class="borde-genero">
+									<h4>TERROR</h4>
+								</div>
+								<h3>Apta sólo para mayores de 18 años.</h3>
+							</div>
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="imagen-salascine">
+			<img src="img/salascine.png" alt="Imagen Socios" title="Cine Usurbil">
+		</div>
+	</main>
+
+
+	<!-- Footer de la página-->
+	<footer>
+		<div class="footer-container">
+			<div class="footer-column">
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-film"></i>Quiénes somos</a>
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-location-dot"></i>Cómo llegar</a>
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-circle-info"></i>Atención
+					al cliente</a>
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-phone"></i> +34 606 060 6060</a>
+			</div>
+			<div class="footer-column">
+				<p><i class="fa-solid fa-address-card"></i> ¿Eres socio?</p>
+				<p>Conoce nuestros beneficios por ser socio del club</p>
+				<p>Cine Usurbil</p>
+				<div class="rrss"> <!-- Iconos del footer -->
+					<a><i class="fa-brands fa-instagram"></i></a>
+					<a><i class="fa-brands fa-facebook"></i></a>
+					<a><i class="fa-brands fa-youtube"></i></a>
+					<a><i class="fa-brands fa-tiktok"></i></a>
+				</div>
+			</div>
+			<div class="footer-column">
+				<a href="#">Aviso legal</a>
+				<a href="#">Política de privacidad</a>
+				<a href="#">Términos y condiciones</a>
+				<a href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
+					rel="license noopener noreferrer" style="display:inline-block;"><img
+						style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+						src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+						alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+						src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+						alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+						src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"
+						alt="licencia"></a>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

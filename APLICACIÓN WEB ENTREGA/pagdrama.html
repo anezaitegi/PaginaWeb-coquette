@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Aqui pagina responsiva-->
+	<link rel="stylesheet" href="style.css"> <!-- Enlace que se liga al css para editar la pagina web-->
+	<link rel="icon" type="image/jpg" href="img/logocineusurbil.png"> <!-- icono de la pagina -->
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+		rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+	<!-- pagina que use para agregar iconos a nuestra pagina web -->
+	<title>Cine Usurbil|Películas</title>
+</head>
+
+<body>
+
+	<!-- Barra de navegación y header -->
+	<header>
+
+        <!--Se verá solo en pantallas grandes-->
+        <div class="container-grande">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <div class="menu-item">
+                    <a href="./index.html" target="_blank">Películas</a>
+                </div>
+                <div class="menu-item">
+                    <input type="checkbox" id="genero-grande">
+                    <label for="genero-grande" class="bot-genero activo">Géneros</label>
+                    <div class="dropdown-genero">
+                        <div class="genero-item">
+                            <a href="./pagterror.html" target="_blank">Terror</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagdrama.html" target="_blank" class="activo">Drama</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagcomedia.html" target="_blank">Comedia</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagscifi.html" target="_blank">Sci - Fi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="./cines.html" target="_blank">Cines</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./pagtickets.html" target="_blank">Tickets</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./index.html" target="_blank">Login || Sign in</a>
+                </div>
+            </nav>
+        </div>
+
+        <!--Se verá solo en pantallas de móvil-->
+        <div class="container-movil">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <input type="checkbox" id="menu">
+                <label for="menu" class="bot-submenu"> ☰ </label>
+                <div class="dropdown-menu">
+                    <div class="menu-item">
+                        <a href="./index.html" target="_blank">Películas</a>
+                    </div>
+                    <div class="menu-item">
+                        <span class="">Géneros</span>
+                        <input type="checkbox" id="genero">
+                        <label for="genero" class="bot-genero"> ☰ </label>
+                        <div class="dropdown-genero">
+                            <div class="genero-item">
+                                <a href="./pagterror.html" target="_blank">Terror</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagdrama.html" target="_blank" class="activo">Drama</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagcomedia.html" target="_blank">Comedia</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagscifi.html" target="_blank">Sci - Fi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./cines.html" target="_blank">Cines</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./pagtickets.html" target="_blank">Tickets</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./index.html" target="_blank">Login || Sign in</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+	<main>
+		<!--Pelicula principal-->
+		<div class="principal" id="pagdrama">
+			<div class="contenedor">
+				<h1 class="titulo">La Lista de Schindler</h1>
+				<h3>
+					Quien salva una vida, salva al mundo entero.
+				</h3>
+				<div class="botones">
+					<button class="boton"><i class="fa-solid fa-ticket"></i>¡Compra ya tus entradas!</button>
+					<button class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+				</div>
+			</div>
+		</div>
+		<!--titulo-->
+		<div class="titulo">
+			<h1>Los más vistos en Drama </h1>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/handiaposter.jpg" alt="Carátula de la película Handia">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/btDBP8TknRM?si=WTbbFphX2ZspZUX1"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>Handia (2017), Jon Garaño.</h2>
+							<p> Tras haber luchado en la Primera Guerra Carlista, Martín vuelve a su caserío
+								familiar en
+								Guipúzcoa y allí descubre con sorpresa que su hermano menor, Joaquín, es mucho más
+								alto de
+								lo normal. Convencido de que todo el mundo querrá pagar por ver al hombre más grande
+								sobre
+								la Tierra, ambos hermanos se embarcan en un largo viaje por Europa en el que la
+								ambición, el
+								dinero y la fama cambiarán para siempre el destino de la familia. Una historia
+								inspirada en
+								hechos reales.
+							</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 1h 54m</h3>
+								<div class="borde-genero">
+									<h4>DRAMA</h4>
+								</div>
+								<h3>Apta sólo para mayores de 12 años.</h3>
+							</div>
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/listashindlerposter.jpg" alt="Carátula de la película La lista de Schindler">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/BmkchuRJ82w?si=xzvcSpNzT1Qsg5rG"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>La lista de Schindler (1993),<br> Steven Spielberg.</h2>
+							<p>
+								Oskar Schindler, un hombre de enorme astucia y talento para las relaciones públicas,
+								organiza un ambicioso plan para ganarse la simpatía de los nazis. Después de la invasión
+								de
+								Polonia por los alemanes, consigue, gracias a sus relaciones con los nazis, la propiedad
+								de
+								una fábrica de Cracovia. Allí emplea a cientos de operarios judíos, cuya explotación le
+								hace
+								prosperar rápidamente. Su gerente, también judío, es el verdadero director en la sombra,
+								pues Schindler no tiene el menor conocimiento industrial.</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 3h 15m</h3>
+								<div class="borde-genero">
+									<h4>DRAMA</h4>
+								</div>
+								<h3>Apta sólo para mayores de 12 años.</h3>
+							</div>
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/Cadena_perpetuaposter.jpg" alt="Carátula de la película Cadena perpetua">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/4u87tmlj4oE?si=W_P9PZuKP-_Cljhh"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>Cadena perpetua (1994), <br> Frank Darabont, Stephen King (novela).</h2>
+							<p>Acusado del asesinato de su mujer, Andrew Dufresne, tras ser condenado a cadena perpetua,
+								es
+								enviado a la prisión de Shawshank. Con el paso de los años conseguirá ganarse la
+								confianza
+								del director del centro y el respeto de sus compañeros presidiarios, especialmente de
+								Red,
+								el jefe de la mafia de los sobornos.</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 2h 23m</h3>
+								<div class="borde-genero">
+									<h4>DRAMA</h4>
+								</div>
+								<h3>Apta sólo para mayores de 12 años.</h3>
+							</div>
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div>
+			<div class="peliculas-container">
+				<div class="pelicula-mini">
+					<div>
+						<div class="caratula">
+							<img src="img/millondollarbabyposter.jpg" alt="Carátula de la película 1">
+						</div>
+						<div class="container-buttom">
+							<form>
+								<button formaction="https://youtu.be/5_RsHRmIRBY?si=-nXhMKt8RkW_OEuP"
+									formtarget="_blank"><i class="fa-regular fa-circle-play"
+										style="color: #fcfcfc;"></i> Trailer</button>
+							</form>
+						</div>
+					</div>
+					<div class="container-resumen">
+						<div class="resumen">
+							<h2>Million Dollar Baby (2004), <br> Clint Eastwood.</h2>
+							<p>Frankie Dunn, después de haber entrenado y representado a los mejores púgiles, regenta un
+								gimnasio con la ayuda de srcap, un ex-boxeador que, además, es su único amigo. Frankie
+								es un
+								hombre solitario y adusto que se refugia desde hace años en la religión buscando una
+								redención que no llega. Un día, entra en su gimnasio Maggie Fitzgerald, una voluntariosa
+								chica que quiere boxear y que está dispuesta a luchar denodadamente para conseguirlo.
+								Pero
+								lo que más desea y necesita es que alguien crea en ella. Frankie la rechaza alegando que
+								es
+								demasiado mayor y que, además, él no entrena a chicas. Pero Maggie no se rinde y se
+								machaca
+								cada día en el gimnasio, con el único apoyo de srcap. Finalmente, convencido de la
+								inquebrantable determinación de Maggie, Frankie decide entrenarla.
+							</p>
+						</div>
+						<div class="duracion-ticket">
+							<div class="duracion">
+								<h3>Duración: 2h 13m</h3>
+								<div class="borde-genero">
+									<h4>DRAMA</h4>
+								</div>
+								<h3>Apta sólo para mayores de 12 años.</h3>
+							</div>
+							<div class="main-section">
+								<button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
+								<button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
+										stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
+										stroke-linejoin="round" class="css-i6dzq1">
+										<circle cx="9" cy="21" r="1"></circle>
+										<circle cx="20" cy="21" r="1"></circle>
+										<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
+										</path>
+									</svg> Compra Ahora!</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="imagen-salascine">
+			<img src="img/salascine.png" alt="Imagen Socios" title="Cine Usurbil">
+		</div>
+	</main>
+
+
+	<!-- Footer de la página-->
+	<footer>
+		<div class="footer-container">
+			<div class="footer-column">
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-film"></i>Quiénes somos</a>
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-location-dot"></i>Cómo llegar</a>
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-circle-info"></i>Atención
+					al cliente</a>
+				<a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-phone"></i> +34 606 060 6060</a>
+			</div>
+			<div class="footer-column">
+				<p><i class="fa-solid fa-address-card"></i> ¿Eres socio?</p>
+				<p>Conoce nuestros beneficios por ser socio del club</p>
+				<p>Cine Usurbil</p>
+				<div class="rrss"> <!-- Iconos del footer -->
+					<a><i class="fa-brands fa-instagram"></i></a>
+					<a><i class="fa-brands fa-facebook"></i></a>
+					<a><i class="fa-brands fa-youtube"></i></a>
+					<a><i class="fa-brands fa-tiktok"></i></a>
+				</div>
+			</div>
+			<div class="footer-column">
+				<a href="#">Aviso legal</a>
+				<a href="#">Política de privacidad</a>
+				<a href="#">Términos y condiciones</a>
+				<a href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
+					rel="license noopener noreferrer" style="display:inline-block;"><img
+						style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+						src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+						alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+						src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+						alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+						src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"
+						alt="licencia"></a>
+			</div>
+		</div>
+	</footer>
+</body>
+
+</html>

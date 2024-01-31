@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Aqui pagina responsiva-->
+    <link rel="stylesheet" href="style.css"> <!-- Enlace que se liga al css para editar la pagina web-->
+    <link rel="icon" type="image/jpg" href="img/logocineusurbil.png"> <!-- icono de la pagina -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <!-- pagina que use para agregar iconos a nuestra pagina web -->
+    <title>Cine Usurbil|Películas</title>
+</head>
+
+<body>
+    <!-- Barra de navegación y header -->
+    <header>
+
+        <!--Se verá solo en pantallas grandes-->
+        <div class="container-grande">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <div class="menu-item">
+                    <a href="./index.html" target="_blank">Estrenos</a>
+                </div>
+                <div class="menu-item">
+                    <input type="checkbox" id="genero-grande">
+                    <label for="genero-grande" class="bot-genero">Películas</label>
+                    <div class="dropdown-genero">
+                        <div class="genero-item">
+                            <a href="./pagterror.html" target="_blank">Terror</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagdrama.html" target="_blank">Drama</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagcomedia.html" target="_blank">Comedia</a>
+                        </div>
+                        <div class="genero-item">
+                            <a href="./pagscifi.html" target="_blank">Sci - Fi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="./cines.html" target="_blank" class="activo">Cines</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./pagtickets.html" target="_blank">Tickets</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./index.html" target="_blank">Login || Sign in</a>
+                </div>
+                <!--<div class="menu-item">
+                    <a href="./index.html" target="_blank" class="">Tickets</a>
+                </div>
+                <div class="menu-item">
+                    <input type="checkbox" id="buscar">
+                    <label for="buscar" class="bot-buscar"><i class="fa-solid fa-magnifying-glass"></i></label>
+                    <div class="buscar-item">
+                        <input type="text" placeholder="Buscar...">
+                    </div>
+                </div>-->
+            </nav>
+        </div>
+
+        <!--Se verá solo en pantallas de móvil-->
+        <div class="container-movil">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <input type="checkbox" id="menu">
+                <label for="menu" class="bot-submenu"> ☰ </label>
+                <div class="dropdown-menu">
+                    <div class="menu-item">
+                        <a href="./index.html" target="_blank">Estrenos</a>
+                    </div>
+                    <div class="menu-item">
+                        <span class="">Películas</span>
+                        <input type="checkbox" id="genero">
+                        <label for="genero" class="bot-genero"> ☰ </label>
+                        <div class="dropdown-genero">
+                            <div class="genero-item">
+                                <a href="./pagterror.html" target="_blank">Terror</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagdrama.html" target="_blank">Drama</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagcomedia.html" target="_blank">Comedia</a>
+                            </div>
+                            <div class="genero-item">
+                                <a href="./pagscifi.html" target="_blank">Sci - Fi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./cines.html" target="_blank" id="activo">Cines</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./pagtickets.html" target="_blank">Tickets</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./index.html" target="_blank">Login || Sign in</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Info Usurbil-->
+        <div class="principal" id="cines">
+            <div class="contenedor">
+                <h1 class="titulo">CINES USURBIL</h1>
+                <h3>
+                    ¡VENTE A DISFRUTAR DE LAS MEJORES PELÍCULAS!
+                </h3>
+                <div class="botones">
+                    <button class="boton"><i class="fas fa-info-circle"></i>COMO LLEGAR</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="titulo">
+            <h1>¡NO TE PIERDAS LAS MEJORES SALAS DE CINE!</h1>
+        </div>
+        <div class="contenedor">
+            <div class="carta">
+                <a
+                    href="https://www.google.es/maps/place/De+Etarte+Bidea,+9,+20170,+Gipuzkoa/@43.2693139,-2.0347758,17z/data=!3m1!4b1!4m6!3m5!1s0xd51b103df8777ff:0xd0b62b4c6ecfb0f3!8m2!3d43.26931!4d-2.0322009!16s%2Fg%2F11cpj80rc5?entry=ttu">
+                    <img src="img/pexels-linda-gschwentner-11718584.jpg" alt="Película 1">
+                    <div class="descripcion">
+                        <h3>CINES USURBIL</h3>
+                        <p><i class="fa-solid fa-location-dot"></i>Etarte bidea, 9 (Zubieta auzoa) 20170, Usurbil.
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="carta">
+                <a href="#">
+                    <img src="img/pexels-tima-miroshnichenko-7991182.jpg" alt="Película 1">
+                    <div class="descripcion">
+                        <h3>CINES DONOSTIA</h3>
+                        <i class="fa-solid fa-location-dot"></i>Aitzol Parkea, 2, 20011 Donostia-San
+                        Sebastian, Gipuzkoa.
+                    </div>
+                </a>
+            </div>
+            <div class="carta">
+                <img src="img/pexels-tima-miroshnichenko-7991274.jpg" alt="Película 2">
+                <div class="descripcion">
+                    <h3>CINES LASARTE</h3>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i>Donostia Etorbidea, 5, 20160 Lasarte-Oria,
+                        Gipuzkoa.</a>
+                </div>
+            </div>
+            <div class="carta">
+                <img src="img/pexels-cottonbro-studio-8272156.jpg" alt="Película 3">
+                <div class="descripcion">
+                    <h3>CINES ANDOAIN</h3>
+                    <a href="#"><i class="fa-solid fa-location-dot"></i>La Salle Hiribidea, 5, 20140 Andoain,
+                        Gipuzkoa.</a>
+                </div>
+            </div>
+        </div>
+        <div class="apartado3">
+            <div class="titulo">
+                <h1>¿QUIENES SOMOS?</h1>
+            </div>
+            <div class="texto">
+                <h2><b>POPCORN CINES</b>, es una empresa que gestiona cines en Guipúzcoa, España. Nos enorgullece
+                    ser parte
+                    de la
+                    rica tradición cinematográfica de esta comunidad, ofreciendo una
+                    experiencia única para los amantes del cine y las familias por igual.</h2>
+                <h2>Nuestra misión es proporcionar un lugar cómodo para los amantes del cine,
+                    donde puedan disfrutar de películas en la pantalla grande en un entorno acogedor.
+
+                    Desde los últimos éxitos de taquilla hasta películas independientes y eventos especiales,
+                    ofrecemos una amplia variedad de opciones para satisfacer todos los gustos y edades.</h2>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer de la página-->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-film"></i>Quiénes somos</a>
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-location-dot"></i>Cómo llegar</a>
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-circle-info"></i>Atención
+                    al cliente</a>
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-phone"></i> +34 606 060 6060</a>
+            </div>
+            <div class="footer-column">
+                <p><i class="fa-solid fa-address-card"></i> ¿Eres socio?</p>
+                <p>Conoce nuestros beneficios por ser socio del club</p>
+                <p>Cine Usurbil</p>
+                <div class="rrss"> <!-- Iconos del footer -->
+                    <a><i class="fa-brands fa-instagram"></i></a>
+                    <a><i class="fa-brands fa-facebook"></i></a>
+                    <a><i class="fa-brands fa-youtube"></i></a>
+                    <a><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <a href="#">Aviso legal</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Términos y condiciones</a>
+                <a href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+                        alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+                        alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"
+                        alt="licencia"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
