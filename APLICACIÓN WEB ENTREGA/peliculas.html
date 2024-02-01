@@ -10,6 +10,7 @@
         rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <!-- pagina que use para agregar iconos a nuestra pagina web -->
+    <script src="https://kit.fontawesome.com/9845d1980a.js" crossorigin="anonymous"></script>
     <!-- JS-->
     <script src="peliculas.js"></script>
     <title>Cine Usurbil|Películas</title>
@@ -109,6 +110,13 @@
     <!-- AQUI VA LOS CONTENIDOS VACIOS Y YO VOY CARGANDO LA INFORMACION CON JAVASCRIPT TOMANDO LOS ELEMENTOS
         CON GETELEMENTID Y LUEGO AGREGANDO CON UN FOR LOS ITEMS O INFO QUE QUIERO PASAR.    
         Tambien puedo tomar toda la info desde la API -->
+
+    <!-- los fondos tambien puedo hacerlos con jvs que vaya cargando cuando se cargue la pagina -->
+
+    <!-- Aqui esta la base del html que se va a ir repitiendo por cada pelicula en total 4 peliculas por pagina.
+             4 paginas por genero: Terror, ciencia fiction, drama, comedia.
+            hacerlo cargar con js las paginas dependiendo que es lo que elija la persona -->
+
     <main>
         <!-- Pelicula Principal-->
         <div class="principal" id="pagterror">
@@ -125,225 +133,101 @@
                 </div>
             </div>
         </div>
-        <!-- Peliculas -->
         <div class="titulo">
-            <h1>Los más vistos en Terror </h1>
+            <h1>Los más vistos</h1>
         </div>
-        <div>
-            <div class="peliculas-container">
-                <div class="pelicula-mini">
-                    <div>
-                        <div class="caratula">
-                            <img src="img/El_resplandor-407954060-large.jpg"
-                                alt="Carátula de la película El Resplandor">
-                        </div>
-                        <div class="container-buttom">
-                            <form>
-                                <button formaction="https://youtu.be/A3q03BBwMp4?si=WMyDFHfbvXIhsjEh"
-                                    formtarget="_blank"><i class="fa-regular fa-circle-play"
-                                        style="color: #fcfcfc;"></i> Trailer</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="container-resumen">
-                        <div class="resumen">
-                            <h2>El resplandor (1980), <br>Stanley Kubrick.</h2>
-                            <p>Jack Torrance se traslada, junto a su mujer y a su hijo, al impresionante hotel Overlook,
-                                en
-                                Colorado, para encargarse del mantenimiento del mismo durante la temporada invernal, en
-                                la
-                                que permanece cerrado y aislado por la nieve. Su idea es esrcibir su novela al tiempo
-                                que
-                                cuida de las instalaciones durante esos largos y solitarios meses de invierno, pero
-                                desde su
-                                llegada al hotel, Jack comienza a padecer inquietantes transtornos de personalidad, al
-                                mismo
-                                tiempo que en el lugar comienzan a suceder diversos fenómenos paranormales.
-                            </p>
-                        </div>
-                        <div class="duracion-ticket">
-                            <div class="duracion">
-                                <h3>Duración: 2h 26m</h3>
-                                <div class="borde-genero">
-                                    <h4>TERROR</h4>
-                                </div>
-                                <h3>Apta sólo para mayores de 18 años.</h3>
-                            </div>
-                            <div class="main-section">
-                                <button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
-                                <button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
-                                        stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round" class="css-i6dzq1">
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
-                                        </path>
-                                    </svg> Compra Ahora!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="peliculas-container">
-                <div class="pelicula-mini">
-                    <div>
-                        <div class="caratula">
-                            <img src="img/draculaposter1.jpg" alt="Carátula de la película Drácula de Bram Stoker">
-                        </div>
-                        <div class="container-buttom">
-                            <form>
-                                <button formaction="https://youtu.be/CjgwUB1CXek?si=2fzGg0Inxdzah7N8"
-                                    formtarget="_blank"><i class="fa-regular fa-circle-play"
-                                        style="color: #fcfcfc;"></i> Trailer</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="container-resumen">
-                        <div class="resumen">
-                            <h2>Drácula de Bram Stoker (1992),<br> Francis Ford Coppola.</h2>
-                            <p>
-                                Antes de convertirse en vampiro, el conde Drácula era el príncipe Vlad, quien tras
-                                conocer
-                                la muerte de su prometida, vendió su alma al diablo. Cuatro siglos después, en Londres,
-                                encuentra a Mina, reencarnación de su amor perdido.
-                            </p>
-                        </div>
-                        <div class="duracion-ticket">
-                            <div class="duracion">
-                                <h3>Duración: 2h 08m</h3>
-                                <div class="borde-genero">
-                                    <h4>TERROR</h4>
-                                </div>
-                                <h3>Apta sólo para mayores de 18 años.</h3>
-                            </div>
 
-                            <div class="main-section">
-                                <button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
-                                <button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
-                                        stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round" class="css-i6dzq1">
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
-                                        </path>
-                                    </svg> Compra Ahora!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="peliculas-container">
-                <div class="pelicula-mini">
-                    <div>
-                        <div class="caratula">
-                            <img src="img/psicosisposter1.jpg" alt="Carátula de la película Psicosis">
-                        </div>
-                        <div class="container-buttom">
-                            <form>
-                                <button formaction="https://youtu.be/inwqMQIFrrA?si=GBy9rEerLn-AEStw"
-                                    formtarget="_blank"><i class="fa-regular fa-circle-play"
-                                        style="color: #fcfcfc;"></i> Trailer</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="container-resumen">
-                        <div class="resumen">
-                            <h2>Psicosis (1960),<br> Alfred Hitchcock.</h2>
-                            <p>
-                                Una joven secretaria, tras cometer un robo, se marcha de la ciudad y conduce durante
-                                horas,
-                                parando para descansar en un pequeño motel de carretera regentado por un joven llamado
-                                Norman. Todo parece normal y tranquilo en el apartado motel y en la casa de al lado en
-                                la
-                                que viven Norman y su madre pero, mientras está en la ducha, la joven es asesinada
-                                salvajemente a cuchilladas.
-                            </p>
-                        </div>
-                        <div class="duracion-ticket">
-                            <div class="duracion">
-                                <h3>Duración: 1h 49m</h3>
-                                <div class="borde-genero">
-                                    <h4>TERROR</h4>
-                                </div>
-                                <h3>Apta sólo para mayores de 18 años.</h3>
-                            </div>
-                            <div class="main-section">
-                                <button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
-                                <button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
-                                        stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round" class="css-i6dzq1">
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
-                                        </path>
-                                    </svg> Compra Ahora!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="peliculas-container">
-                <div class="pelicula-mini">
-                    <div>
-                        <div class="caratula">
-                            <img src="img/cisnenegroposter1.jpg" alt="Carátula de la película Cisne Negro">
-                        </div>
-                        <div class="container-buttom">
-                            <form>
-                                <button formaction="https://youtu.be/uPnB_Bjh5fo?si=yOFsNpOI0dMHyGiz"
-                                    formtarget="_blank"><i class="fa-regular fa-circle-play"
-                                        style="color: #fcfcfc;"></i> Trailer</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="container-resumen">
-                        <div class="resumen">
-                            <h2>Cisne Negro (2010),<br> Darren Aronofsky.</h2>
-                            <p>
-                                Nina, una brillante bailarina que forma parte de una compañía de ballet de Nueva York,
-                                vive
-                                completamente absorbida por la danza. La presión de su controladora madre, la rivalidad
-                                con
-                                su compañera Lily y las exigencias del severo director se irán incrementando a medida
-                                que se
-                                acerca el día del estreno. Esta tensión provoca en Nina un agotamiento nervioso y una
-                                confusión mental que la incapacitan para distinguir entre realidad y ficción.
-                            </p>
-                        </div>
-                        <div class="duracion-ticket">
-                            <div class="duracion">
-                                <h3>Duración: 1h 49m</h3>
-                                <div class="borde-genero">
-                                    <h4>TERROR</h4>
-                                </div>
-                                <h3>Apta sólo para mayores de 18 años.</h3>
-                            </div>
-                            <div class="main-section">
-                                <button class="first-button"> ¡ Tickets ! <i class="fa-solid fa-ticket"></i></button>
-                                <button class="second-button"> <svg viewBox="0 0 24 24" width="20" height="20"
-                                        stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round"
-                                        stroke-linejoin="round" class="css-i6dzq1">
-                                        <circle cx="9" cy="21" r="1"></circle>
-                                        <circle cx="20" cy="21" r="1"></circle>
-                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6">
-                                        </path>
-                                    </svg> Compra Ahora!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="imagen-salascine">
-            <img src="img/salascine.png" alt="Imagen Socios" title="Cine Usurbil">
-        </div>
+        <div id="peliculas-container"></div><!-- reemplaza a peliculas-container-->
     </main>
+
+        <script>
+        async function fetchPelisDataTerror() {
+            const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming?genre=Horror';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'aba744fe91mshf5416ee73e7a51dp1fb298jsne60bf4933e32',
+                    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const jsonData = await response.json();
+
+                renderMovies(jsonData.results);
+
+            } catch (error) {
+                console.error('Hubo un error al obtener los datos de la API:', error);
+            }
+        }
+
+        function createMovieElement(movie) {
+            const peliculaMini = document.createElement("div");
+            peliculaMini.className = "pelicula-mini";
+
+            const caratula = document.createElement("div");
+            caratula.className = "caratula";
+            const imagen = document.createElement("img");
+            imagen.src = movie.primaryImage ? movie.primaryImage.url : "URL_POR_DEFECTO";
+            imagen.alt = `Carátula de la película ${movie.titleText.text}`;
+            caratula.appendChild(imagen);
+
+            const containerBoton = document.createElement("div");
+            containerBoton.className = "container-buttom";
+            const form = document.createElement("form");
+            const botonTrailer = document.createElement("button");
+            botonTrailer.setAttribute("formaction", "https://youtu.be/");
+            botonTrailer.setAttribute("formtarget", "_blank");
+            botonTrailer.innerHTML = `<i class="fa-regular fa-circle-play" style="color: #fcfcfc;"></i> Trailer`;
+            form.appendChild(botonTrailer);
+            containerBoton.appendChild(form);
+
+            const containerResumen = document.createElement("div");
+            containerResumen.className = "container-resumen";
+            const resumen = document.createElement("div");
+            resumen.className = "resumen";
+            resumen.innerHTML = `<h2>${movie.titleText.text}, <br>Director X</h2><p>${movie.releaseDate.day}/${movie.releaseDate.month}/${movie.releaseYear.year}</p>`;
+            const duracionTicket = document.createElement("div");
+            duracionTicket.className = "duracion-ticket";
+            const duracion = document.createElement("div");
+            duracion.className = "duracion";
+            duracion.innerHTML = `<h3>Duración: X</h3><div class="borde-genero"><h4>${movie.titleType.text}</h4></div><h3>Edad permitida</h3>`;
+            const mainSection = document.createElement("div");
+            mainSection.className = "main-section";
+            const firstButton = document.createElement("button");
+            firstButton.className = "first-button";
+            firstButton.innerHTML = `¡ Tickets ! <i class="fa-solid fa-ticket"></i>`;
+            const secondButton = document.createElement("button");
+            secondButton.className = "second-button";
+            secondButton.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1</path></svg> Compra Ahora!`;
+
+            // Agregar elementos al contenedor principal
+            peliculaMini.appendChild(caratula);
+            peliculaMini.appendChild(containerBoton);
+            peliculaMini.appendChild(containerResumen);
+            resumen.appendChild(duracionTicket);
+            duracionTicket.appendChild(duracion);
+            duracionTicket.appendChild(mainSection);
+            mainSection.appendChild(firstButton);
+            mainSection.appendChild(secondButton);
+            containerResumen.appendChild(resumen);
+
+            return peliculaMini;
+        }
+
+        function renderMovies(movies) {
+            const peliculasContainer = document.getElementById("peliculas-container");
+
+            movies.forEach(movie => {
+                const movieElement = createMovieElement(movie);
+                peliculasContainer.appendChild(movieElement);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", fetchPelisDataTerror);
+        // Otros eventos para géneros adicionales...
+    </script>
 
 
 
