@@ -140,27 +140,84 @@
         <div id="peliculas-container"></div><!-- reemplaza a peliculas-container-->
     </main>
 
-        <script>
-        async function fetchPelisDataTerror() {
-            const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming?genre=Horror';
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': 'aba744fe91mshf5416ee73e7a51dp1fb298jsne60bf4933e32',
-                    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+    <script>
+
+        // a ver si me funciona la api de tmdb
+
+        
+
+            // lo encontre en githud --->
+
+            // const BASE_URL = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
+            // const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk';
+
+            // async function getPopularMovies(page = 1) {
+            //     let data = []
+            //     try {
+            //         const response = await fetch(`${BASE_URL}movie/popular?api_key=${API_KEY}&page=${page}`)
+            //         const responseData = await response.json()
+            //         data = responseData?.results
+            //     } catch (error) {
+
+            //     }
+            //     return data
+            // }
+            
+
+            // intento de hacer fetch await con el TMDB.( la pagina no lo trae pero a ver si funciona.)
+            // funciona super bien la API DE TMBD. EN ESPAÑOL, podria pasar toda la pagina web usando api
+            // GENEROS ID TMBD: https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee
+            // EL TEMA ES QUE SON LAS PELICULAS POPULARES---> me sirve para proximos estrenos.
+            // necesito ver como sacar las imagenes porque estan en un jpg pero no se de donde los sacaran
+            // ya encontre la solucion, https://www.themoviedb.org/talk/5aeaaf56c3a3682ddf0010de
+            // esta seria la ruta entera: https://image.tmdb.org/t/p/original/jXJxMcVoEuXzym3vFnjqDW4ifo6.jpg
+            // esta seria la ruta sola sin https://image.tmdb.org/t/p/original(supongo que va cambiando la id o cosas asi en la informacion o la ruta o etc?) supongo que yo me entiendo.
+            
+        
+            async function fetchPopularMovies() {
+                const url = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
+                    }
+                };
+
+                try {
+                    const response = await fetch(url, options);
+                    const data = await response.json();
+                    console.log(data);
+                } catch (error) {
+                    console.error('Error:', error);
                 }
-            };
-
-            try {
-                const response = await fetch(url, options);
-                const jsonData = await response.json();
-
-                renderMovies(jsonData.results);
-
-            } catch (error) {
-                console.error('Hubo un error al obtener los datos de la API:', error);
             }
-        }
+
+            
+            fetchPopularMovies();
+
+        //     async function fetchPelisDataTerror() {
+        //     // API primera que he usado.
+        //     const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming?genre=Horror';
+        //     const options = {
+        //         method: 'GET',
+        //         headers: {
+        //             'X-RapidAPI-Key': 'aba744fe91mshf5416ee73e7a51dp1fb298jsne60bf4933e32',
+        //             'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+        //         }
+        //     };
+
+        //     try {
+        //         const response = await fetch(url, options);
+        //         const jsonData = await response.json();
+        //         console.log(jsonData);
+
+        //         renderMovies(jsonData.results);
+
+        //     } catch (error) {
+        //         console.error('Hubo un error al obtener los datos de la API:', error);
+        //     }
+        // }
 
         function createMovieElement(movie) {
             const peliculaMini = document.createElement("div");
@@ -200,7 +257,7 @@
             firstButton.innerHTML = `¡ Tickets ! <i class="fa-solid fa-ticket"></i>`;
             const secondButton = document.createElement("button");
             secondButton.className = "second-button";
-            secondButton.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1</path></svg> Compra Ahora!`;
+            secondButton.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Compra Ahora!`;
 
             // Agregar elementos al contenedor principal
             peliculaMini.appendChild(caratula);
@@ -225,8 +282,9 @@
             });
         }
 
-        document.addEventListener("DOMContentLoaded", fetchPelisDataTerror);
-        // Otros eventos para géneros adicionales...
+        document.addEventListener("DOMContentLoaded", fetchPopularMovies);
+
+
     </script>
 
 
