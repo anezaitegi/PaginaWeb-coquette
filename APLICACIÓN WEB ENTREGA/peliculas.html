@@ -36,16 +36,16 @@
                     <label for="genero-grande" class="bot-genero activo">Películas</label>
                     <div class="dropdown-genero">
                         <div class="genero-item">
-                            <a href="./pagterror.html" target="">Terror</a>
+                            <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
                         </div>
                         <div class="genero-item">
-                            <a href="./pagdrama.html" target="">Drama</a>
+                            <a target="" onclick="filterByGenre(18)">Drama</a>
                         </div>
                         <div class="genero-item">
-                            <a href="./pagcomedia.html" target="">Comedia</a>
+                            <a target="" onclick="filterByGenre(35)">Comedia</a>
                         </div>
                         <div class="genero-item">
-                            <a href="./pagscifi.html" target="">Sci - Fi</a>
+                            <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
              4 paginas por genero: Terror, ciencia fiction, drama, comedia.
             hacerlo cargar con js las paginas dependiendo que es lo que elija la persona -->
 
-    <main>
+    <main id="peliculas-div">
         <!-- Pelicula Principal-->
         <div class="principal" id="pagterror">
             <div class="contenedor">
@@ -137,31 +137,11 @@
             <h1>Los más vistos</h1>
         </div>
 
-        <div id="peliculas-container"></div><!-- reemplaza a peliculas-container-->
     </main>
 
     <script>
 
-        // a ver si me funciona la api de tmdb
-
-        
-
-            // lo encontre en githud --->
-
-            // const BASE_URL = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
-            // const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk';
-
-            // async function getPopularMovies(page = 1) {
-            //     let data = []
-            //     try {
-            //         const response = await fetch(`${BASE_URL}movie/popular?api_key=${API_KEY}&page=${page}`)
-            //         const responseData = await response.json()
-            //         data = responseData?.results
-            //     } catch (error) {
-
-            //     }
-            //     return data
-            // }
+        // a ver si me funciona la api de tmdB 
             
 
             // intento de hacer fetch await con el TMDB.( la pagina no lo trae pero a ver si funciona.)
@@ -174,60 +154,100 @@
             // esta seria la ruta sola sin https://image.tmdb.org/t/p/original(supongo que va cambiando la id o cosas asi en la informacion o la ruta o etc?) supongo que yo me entiendo.
             
         
-            async function fetchPopularMovies() {
-                const url = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
-                    }
-                };
-
-                try {
-                    const response = await fetch(url, options);
-                    const data = await response.json();
-                    console.log(data);
-                } catch (error) {
-                    console.error('Error:', error);
+        async function fetchPopularMovies() {
+            const url = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
                 }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const data = await response.json();
+                console.log(data);
+
+                renderMovies(data.results);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        async function filterByGenre(genre_id) {
+            const url = `https://api.themoviedb.org/3/discover/movie?language=es-ES&with_genres=${genre_id}&sort_by=popularity.desc`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const data = await response.json();
+                console.log(data);
+
+                const filteredMovies = data.results.filter(movie => movie.genre_ids.includes(genre_id));
+
+                console.log(filteredMovies.slice(0, 10));
+                renderMovies(filteredMovies.slice(0, 10));
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function getGenreByID(id) {
+            // Diccionarrio:
+            // Llave: valor
+            const genres = {
+                28: "Action",
+                12: "Adventure",
+                16: "Animation",
+                35: "Comedy",
+                80: "Crime",
+                99: "Documentary",
+                18: "Drama",
+                10751: "Family",
+                14: "Fantasy",
+                36: "History",
+                27: "Horror",
+                10402: "Music",
+                9648: "Mystery",
+                10749: "Romance",
+                878: "Science Fiction",
+                10770: "TV Movie",
+                53: "Thriller",
+                10752: "War",
+                37: "Western"
+            };
+
+            return genres[id]; // le doy un id como llave y me da un genero como valor
+
+        }
+
+        function getClasification(isAdult) {
+            if (isAdult) {
+                return "Apto para mayores de 18";
             }
 
-            
-            fetchPopularMovies();
-
-        //     async function fetchPelisDataTerror() {
-        //     // API primera que he usado.
-        //     const url = 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming?genre=Horror';
-        //     const options = {
-        //         method: 'GET',
-        //         headers: {
-        //             'X-RapidAPI-Key': 'aba744fe91mshf5416ee73e7a51dp1fb298jsne60bf4933e32',
-        //             'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
-        //         }
-        //     };
-
-        //     try {
-        //         const response = await fetch(url, options);
-        //         const jsonData = await response.json();
-        //         console.log(jsonData);
-
-        //         renderMovies(jsonData.results);
-
-        //     } catch (error) {
-        //         console.error('Hubo un error al obtener los datos de la API:', error);
-        //     }
-        // }
+            return "Apto para todo público";
+        }
 
         function createMovieElement(movie) {
+            const peliculaContainer = document.createElement("div");
+            peliculaContainer.className = "peliculas-container";
+
             const peliculaMini = document.createElement("div");
             peliculaMini.className = "pelicula-mini";
 
             const caratula = document.createElement("div");
             caratula.className = "caratula";
             const imagen = document.createElement("img");
-            imagen.src = movie.primaryImage ? movie.primaryImage.url : "URL_POR_DEFECTO";
-            imagen.alt = `Carátula de la película ${movie.titleText.text}`;
+            imagen.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+            imagen.alt = `Carátula de la película ${movie.title}`;
             caratula.appendChild(imagen);
 
             const containerBoton = document.createElement("div");
@@ -241,15 +261,36 @@
             containerBoton.appendChild(form);
 
             const containerResumen = document.createElement("div");
-            containerResumen.className = "container-resumen";
+            containerResumen.className = "container-resumen width-100";
             const resumen = document.createElement("div");
             resumen.className = "resumen";
-            resumen.innerHTML = `<h2>${movie.titleText.text}, <br>Director X</h2><p>${movie.releaseDate.day}/${movie.releaseDate.month}/${movie.releaseYear.year}</p>`;
+            resumen.innerHTML = `<h2>${movie.title} (${movie.release_date.split("-")[0]})</h2>
+            <br>
+            <p>${movie.overview}</p>`;
             const duracionTicket = document.createElement("div");
             duracionTicket.className = "duracion-ticket";
             const duracion = document.createElement("div");
             duracion.className = "duracion";
-            duracion.innerHTML = `<h3>Duración: X</h3><div class="borde-genero"><h4>${movie.titleType.text}</h4></div><h3>Edad permitida</h3>`;
+            duracion.innerHTML = "<br>";
+
+            const duracionTiempo = document.createElement("h3");
+            duracionTiempo.innerHTML = "Duración: X";
+
+            const duracionEdad = document.createElement("h3");
+            duracionEdad.innerHTML = `${getClasification(movie.adult)}`;
+
+            //duracion.appendChild(duracionTiempo);
+
+            const generosPelicula = movie.genre_ids;
+            generosPelicula.forEach(genero => {
+                const generoBox = document.createElement("div");
+                generoBox.className = "borde-genero";
+                generoBox.innerHTML = `<h4>${getGenreByID(genero)}</h4>`;
+                duracion.appendChild(generoBox);
+            });
+
+            duracion.appendChild(duracionEdad);
+
             const mainSection = document.createElement("div");
             mainSection.className = "main-section";
             const firstButton = document.createElement("button");
@@ -260,8 +301,11 @@
             secondButton.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Compra Ahora!`;
 
             // Agregar elementos al contenedor principal
-            peliculaMini.appendChild(caratula);
-            peliculaMini.appendChild(containerBoton);
+            const caratulaDiv = document.createElement("div");
+            caratulaDiv.appendChild(caratula);
+            caratulaDiv.appendChild(containerBoton);
+
+            peliculaMini.appendChild(caratulaDiv);
             peliculaMini.appendChild(containerResumen);
             resumen.appendChild(duracionTicket);
             duracionTicket.appendChild(duracion);
@@ -270,12 +314,41 @@
             mainSection.appendChild(secondButton);
             containerResumen.appendChild(resumen);
 
-            return peliculaMini;
+            peliculaContainer.appendChild(peliculaMini);
+
+            const peliculaDiv = document.createElement("div");
+            peliculaDiv.className = "width-100";
+            peliculaDiv.appendChild(peliculaContainer);
+
+            return peliculaDiv;
         }
 
         function renderMovies(movies) {
-            const peliculasContainer = document.getElementById("peliculas-container");
+            const peliculasContainer = document.getElementById("peliculas-div");
 
+            // Default
+            peliculasContainer.innerHTML = `<!-- Pelicula Principal-->
+        <div class="principal" id="pagterror">
+            <div class="contenedor">
+                <h1 class="titulo">Drácula de Bram Stoker</h1>
+                <h3>
+                    Antes de convertirse en vampiro, el conde Drácula era el príncipe Vlad, quien tras conocer la muerte
+                    de su prometida, vendió su alma al diablo.
+                    Cuatro siglos después, en Londres, encuentra a Mina, reencarnación de su amor perdido.
+                </h3>
+                <div class="botones">
+                    <button class="boton"><i class="fa-solid fa-ticket"></i>¡Compra ya tus entradas!</button>
+                    <button class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+                </div>
+            </div>
+        </div>
+        <div class="titulo">
+            <h1>Los más vistos</h1>
+        </div>`;
+            
+            // COMO USAR EL FOR EACH: 
+            // ARREGLO.PorCadaElemento( variable_de_iteracion(nombre que le di)
+            // => { hacer algo})
             movies.forEach(movie => {
                 const movieElement = createMovieElement(movie);
                 peliculasContainer.appendChild(movieElement);

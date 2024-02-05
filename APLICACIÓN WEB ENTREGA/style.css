@@ -156,6 +156,15 @@ main .peliculas-container {
     padding: 10px;
 }
 
+/* muchas clases con funcionalidades pequeñas */
+.width-100 {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
 main .pelicula-mini {
     display: flex;
     justify-content: space-around;
