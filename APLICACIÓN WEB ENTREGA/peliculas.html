@@ -29,7 +29,7 @@
 
             <nav>
                 <div class="menu-item">
-                    <a href="./index.html" target="_blank">Estrenos</a>
+                    <a href="./index.html" target="">Estrenos</a>
                 </div>
                 <div class="menu-item">
                     <input type="checkbox" id="genero-grande">
@@ -73,35 +73,35 @@
                 <label for="menu" class="bot-submenu"> ☰ </label>
                 <div class="dropdown-menu">
                     <div class="menu-item">
-                        <a href="./index.html" target="_blank">Estrenos</a>
+                        <a href="./index.html" target="">Estrenos</a>
                     </div>
                     <div class="menu-item">
-                        <span class="">Películas</span>
+                        <span class="activo">Películas</span>
                         <input type="checkbox" id="genero">
-                        <label for="genero" class="bot-genero"> ☰ </label>
+                        <label for="genero" class="bot-genero"> ▼ </label>
                         <div class="dropdown-genero">
                             <div class="genero-item">
-                                <a href="./pagterror.html" target="_blank">Terror</a>
+                                <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
                             </div>
                             <div class="genero-item">
-                                <a href="./pagdrama.html" target="_blank">Drama</a>
+                                <a target="" onclick="filterByGenre(18)">Drama</a>
                             </div>
                             <div class="genero-item">
-                                <a href="./pagcomedia.html" target="_blank">Comedia</a>
+                                <a target="" onclick="filterByGenre(35)">Comedia</a>
                             </div>
                             <div class="genero-item">
-                                <a href="./pagscifi.html" target="_blank">Sci - Fi</a>
+                                <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <a href="./cines.html" target="_blank" id="activo">Cines</a>
+                        <a href="./cines.html" target="">Cines</a>
                     </div>
                     <div class="menu-item">
-                        <a href="./pagtickets.html" target="_blank">Tickets</a>
+                        <a href="./pagtickets.html" target="">Tickets</a>
                     </div>
                     <div class="menu-item">
-                        <a href="./index.html" target="_blank">Login || Sign in</a>
+                        <a href="./index.html" target="">Login || Sign in</a>
                     </div>
                 </div>
             </nav>
@@ -153,7 +153,7 @@
             // esta seria la ruta entera: https://image.tmdb.org/t/p/original/jXJxMcVoEuXzym3vFnjqDW4ifo6.jpg
             // esta seria la ruta sola sin https://image.tmdb.org/t/p/original(supongo que va cambiando la id o cosas asi en la informacion o la ruta o etc?) supongo que yo me entiendo.
             
-        
+        // peliculas
         async function fetchPopularMovies() {
             const url = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
             const options = {
@@ -174,7 +174,7 @@
                 console.error('Error:', error);
             }
         }
-
+        // filtrar peliculas por genero, pasar parametro genero-id
         async function filterByGenre(genre_id) {
             const url = `https://api.themoviedb.org/3/discover/movie?language=es-ES&with_genres=${genre_id}&sort_by=popularity.desc`;
             const options = {
@@ -191,16 +191,16 @@
                 console.log(data);
 
                 const filteredMovies = data.results.filter(movie => movie.genre_ids.includes(genre_id));
-
+                // filtrar 
                 console.log(filteredMovies.slice(0, 10));
                 renderMovies(filteredMovies.slice(0, 10));
             } catch (error) {
                 console.error('Error:', error);
             }
         }
-
+        // funcion diccionario para saber cuales son los generos usando los id de la api
         function getGenreByID(id) {
-            // Diccionarrio:
+            // Diccionarrio (en js):
             // Llave: valor
             const genres = {
                 28: "Action",
@@ -227,7 +227,7 @@
             return genres[id]; // le doy un id como llave y me da un genero como valor
 
         }
-
+        // funcion para adultos o no
         function getClasification(isAdult) {
             if (isAdult) {
                 return "Apto para mayores de 18";
@@ -235,52 +235,62 @@
 
             return "Apto para todo público";
         }
-
+        // funcion crear (contenedores) pelicula(s)
         function createMovieElement(movie) {
+            // contenedor principal
             const peliculaContainer = document.createElement("div");
             peliculaContainer.className = "peliculas-container";
+            peliculaContainer.innerHTML = `<br>`;
 
+            // contenedor especifico
             const peliculaMini = document.createElement("div");
-            peliculaMini.className = "pelicula-mini";
-
+            peliculaMini.className = "pelicula-mini borde-top";
+            
+            // dentro de cada contenedor
             const caratula = document.createElement("div");
             caratula.className = "caratula";
             const imagen = document.createElement("img");
             imagen.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
             imagen.alt = `Carátula de la película ${movie.title}`;
             caratula.appendChild(imagen);
-
             const containerBoton = document.createElement("div");
             containerBoton.className = "container-buttom";
             const form = document.createElement("form");
             const botonTrailer = document.createElement("button");
-            botonTrailer.setAttribute("formaction", "https://youtu.be/");
+            botonTrailer.setAttribute("formaction", "https://youtu.be/"); // ver que hago con el link? como podria pasarlo. o sino no lo hago funcional.
             botonTrailer.setAttribute("formtarget", "_blank");
+            // i = imagen "play" dibujo vectorizado
             botonTrailer.innerHTML = `<i class="fa-regular fa-circle-play" style="color: #fcfcfc;"></i> Trailer`;
             form.appendChild(botonTrailer);
             containerBoton.appendChild(form);
-
+            // contenedor resumen
             const containerResumen = document.createElement("div");
             containerResumen.className = "container-resumen width-100";
             const resumen = document.createElement("div");
             resumen.className = "resumen";
+            // split para separar la fecha y solo colocar la primera posicion.
             resumen.innerHTML = `<h2>${movie.title} (${movie.release_date.split("-")[0]})</h2>
             <br>
             <p>${movie.overview}</p>`;
+            // contenedor duracion-adulto-genero-boton ticket
             const duracionTicket = document.createElement("div");
             duracionTicket.className = "duracion-ticket";
+            // duracion ticket tiene dos contenedores grandes: duracion y boton ticket.
+            // dentro de duracion: duracionTiempo-ADULTO-GENEROS
             const duracion = document.createElement("div");
             duracion.className = "duracion";
             duracion.innerHTML = "<br>";
-
+            // duracion no lo estoy usando todavia
             const duracionTiempo = document.createElement("h3");
             duracionTiempo.innerHTML = "Duración: X";
-
+            // ADULTO o no --> crear
             const duracionEdad = document.createElement("h3");
             duracionEdad.innerHTML = `${getClasification(movie.adult)}`;
 
             //duracion.appendChild(duracionTiempo);
 
+            // generos usando foreach, insertando funcion (preguntar)
+            // pero creo que esta declarando una array que en este caso es de genero id
             const generosPelicula = movie.genre_ids;
             generosPelicula.forEach(genero => {
                 const generoBox = document.createElement("div");
@@ -288,9 +298,9 @@
                 generoBox.innerHTML = `<h4>${getGenreByID(genero)}</h4>`;
                 duracion.appendChild(generoBox);
             });
-
+            // ADULTO O NO --> insertar
             duracion.appendChild(duracionEdad);
-
+            // BOTON tickets.
             const mainSection = document.createElement("div");
             mainSection.className = "main-section";
             const firstButton = document.createElement("button");
@@ -300,11 +310,11 @@
             secondButton.className = "second-button";
             secondButton.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Compra Ahora!`;
 
-            // Agregar elementos al contenedor principal
+            // contenedor de caratula y boton de trailer
             const caratulaDiv = document.createElement("div");
             caratulaDiv.appendChild(caratula);
             caratulaDiv.appendChild(containerBoton);
-
+            // otros contenedores 
             peliculaMini.appendChild(caratulaDiv);
             peliculaMini.appendChild(containerResumen);
             resumen.appendChild(duracionTicket);
@@ -313,19 +323,22 @@
             mainSection.appendChild(firstButton);
             mainSection.appendChild(secondButton);
             containerResumen.appendChild(resumen);
-
             peliculaContainer.appendChild(peliculaMini);
-
+            // cada div pelicula grande para asignarle width100.
             const peliculaDiv = document.createElement("div");
             peliculaDiv.className = "width-100";
             peliculaDiv.appendChild(peliculaContainer);
 
+            // el return me devuelve una pelicula creada
             return peliculaDiv;
         }
+
+        // colocar los más vistos titulo, que vaya pasando colocando el genero.
 
         function renderMovies(movies) {
             const peliculasContainer = document.getElementById("peliculas-div");
 
+            // lo importante es que rendermovies deje vacio luego de insertar la pelicula principal.
             // Default
             peliculasContainer.innerHTML = `<!-- Pelicula Principal-->
         <div class="principal" id="pagterror">
