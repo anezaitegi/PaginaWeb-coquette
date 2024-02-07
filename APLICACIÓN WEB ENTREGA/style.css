@@ -65,29 +65,29 @@ main #cines {
 }
 
 main #pagterror {
-    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url('img/draculabackdrop.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-position: center center;
     background-size: cover;
 }
 
 main #pagcomedia {
-    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url('img/scarymoviebackdrop.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-position: center center;
     background-size: cover;
 }
 
 main #pagscifi {
-    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url('img/odiseaespaciobackdrops.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-position: center center;
     background-size: cover;
 }
 
 main #pagdrama {
-    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url('img/listaschindlerbackdrops.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
     background-position: center center;
     background-size: cover;
 }
-
+/* aqui deberia hacer algo parecido pero con cada pelicula. pero tendria que arreglar la pagina pelicula. SOLO SI ME DA TIEMPO*/
 main #pagtickets {
     background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url('img/handiabackdrops.jpg');
     background-position: center center;
