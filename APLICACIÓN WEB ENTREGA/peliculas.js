@@ -7,6 +7,13 @@
     6.- Ver sino tambien se puede tomar el mismo codigo en todas las paginas de html que se repiten como en el header/footer.
     7.- Al intentar cambiar todas las peliculas de las paginas en una sola pagina PELICULAS--> tendria que cambiar la pelicula principal 
     en el CSS, o dejo una sola. COMO UNA PORTADA. (REalizado)
+    8.- Falta hacer que las paginas html esten relacionadas con el boton ( quizas no usa un onclick o quizas deba usar un solo js para que lo tome?)
+    9.- Me falta filtrar los titulos por generos ${genero: generogetid()}(por ejemplo)
+    10.- arreglar los links de youtube, ver si los dejo o no,.
+    11.- ver si la api me pasa peliculas espeicificas para usar en el grid o en la lista de peliculas de màs abajo
+    12.- hacer que la pagina web traiga informacion desde la base de datos pero cual base de datos?? supongo que desde la que estan creando.
+    13.- Podria hacer otra pagina de estrenos. hare una pagina de login tamnbien
+
 
 
     GENERO ID DE TMBD: https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee
@@ -90,24 +97,24 @@
         // Diccionarrio (en js):
         // Llave: valor
         const genres = {
-            28: "Action",
-            12: "Adventure",
-            16: "Animation",
-            35: "Comedy",
-            80: "Crime",
-            99: "Documentary",
+            28: "Acción",
+            12: "Aventura",
+            16: "Animación",
+            35: "Comedia",
+            80: "Crimen",
+            99: "Documental",
             18: "Drama",
-            10751: "Family",
-            14: "Fantasy",
-            36: "History",
-            27: "Horror",
-            10402: "Music",
-            9648: "Mystery",
+            10751: "Familia",
+            14: "Fantasía",
+            36: "Historia",
+            27: "Terror",
+            10402: "Música",
+            9648: "Misterio",
             10749: "Romance",
-            878: "Science Fiction",
-            10770: "TV Movie",
+            878: "Ciencia Ficción",
+            10770: "Película de TV",
             53: "Thriller",
-            10752: "War",
+            10752: "Guerra",
             37: "Western"
         };
 
@@ -144,6 +151,7 @@
         containerBoton.className = "container-buttom";
         const form = document.createElement("form");
         const botonTrailer = document.createElement("button");
+        // arreglar esto sino que no vaya a ningun lado.
         botonTrailer.setAttribute("formaction", "https://youtu.be/"); // ver que hago con el link? como podria pasarlo. o sino no lo hago funcional.
         botonTrailer.setAttribute("formtarget", "_blank");
         // i = imagen "play" dibujo vectorizado
@@ -297,8 +305,9 @@
             peliculasContainer.appendChild(movieElement);
         });
     }
+
+
+  
     document.addEventListener("DOMContentLoaded", fetchPopularMovies);
-
-
 
 

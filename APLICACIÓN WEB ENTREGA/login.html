@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
         rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <!-- JS-->
-    <script src="peliculas.js"></script>
     <!-- pagina que use para agregar iconos a nuestra pagina web -->
-    <title>Cine Usurbil|Películas</title>
+    <script src="https://kit.fontawesome.com/9845d1980a.js" crossorigin="anonymous"></script>
+    <!-- JS
+    <script src="peliculas.js"></script> -->
+    <title>Cine Usurbil|Login</title>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
 
             <nav>
                 <div class="menu-item">
-                    <a href="./index.html" target="">Estrenos</a>
+                    <a href="./index.html" target="" class="activo">Estrenos</a>
                 </div>
                 <div class="menu-item">
                     <input type="checkbox" id="genero-grande">
@@ -49,13 +50,13 @@
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a href="./cines.html" target="" class="activo">Cines</a>
+                    <a href="./cines.html" target="">Cines</a>
                 </div>
                 <div class="menu-item">
                     <a href="./pagtickets.html" target="">Tickets</a>
                 </div>
                 <div class="menu-item">
-                    <a href="./index.html" target="">Login || Sign in</a>
+                    <a href="./index.html" target="">Iniciar sesión</a>
                 </div>
             </nav>
         </div>
@@ -72,7 +73,7 @@
                 <label for="menu" class="bot-submenu"> ☰ </label>
                 <div class="dropdown-menu">
                     <div class="menu-item">
-                        <a href="./index.html" target="">Estrenos</a>
+                        <a href="./index.html" target="" class="activo">Estrenos</a>
                     </div>
                     <div class="menu-item">
                         <span>Películas</span>
@@ -94,13 +95,13 @@
                         </div>
                     </div>
                     <div class="menu-item">
-                        <a href="./cines.html" target="" class="activo">Cines</a>
+                        <a href="./cines.html" target="">Cines</a>
                     </div>
                     <div class="menu-item">
                         <a href="./pagtickets.html" target="">Tickets</a>
                     </div>
                     <div class="menu-item">
-                        <a href="./index.html" target="">Login || Sign in</a>
+                        <a href="./index.html" target="">Iniciar sesión</a>
                     </div>
                 </div>
             </nav>
@@ -115,84 +116,74 @@
                     </div>
                 </div>-->
     </header>
-   
-
     <main>
-        <!-- Info Usurbil-->
-        <div class="principal" id="cines">
-            <div class="contenedor">
-                <h1 class="titulo">CINES USURBIL</h1>
-                <h3>
-                    ¡VENTE A DISFRUTAR DE LAS MEJORES PELÍCULAS!
-                </h3>
-                <div class="botones">
-                    <button class="boton"><i class="fas fa-info-circle"></i>COMO LLEGAR</button>
-                </div>
-            </div>
+
+        <div id="container-login" class="body-login">
+            <form action="" class="form-login">
+                <h1 class="tittle">Iniciar sesión</h1>
+                <label>
+                    <i class="fa-solid fa-user"></i>
+                    <input placeholder="Usuario" type="text" id="username">
+                </label>
+                <label>
+                    <i class="fa-solid fa-lock"></i>
+                    <input placeholder="Contraseña" type="password" id="password">
+                </label>
+                <a href="#" class="link">¿Olviste la contraseña?</a>
+                <button id="buttonlogin">Entrar</button>
+            </form>
         </div>
 
-        <div class="titulo">
-            <h1>¡NO TE PIERDAS LAS MEJORES SALAS DE CINE!</h1>
-        </div>
-        <div class="contenedor">
-            <div class="carta">
-                <a
-                    href="https://www.google.es/maps/place/De+Etarte+Bidea,+9,+20170,+Gipuzkoa/@43.2693139,-2.0347758,17z/data=!3m1!4b1!4m6!3m5!1s0xd51b103df8777ff:0xd0b62b4c6ecfb0f3!8m2!3d43.26931!4d-2.0322009!16s%2Fg%2F11cpj80rc5?entry=ttu">
-                    <img src="img/pexels-linda-gschwentner-11718584.jpg" alt="Película 1">
-                    <div class="descripcion">
-                        <h3>CINES USURBIL</h3>
-                        <p><i class="fa-solid fa-location-dot"></i>Etarte bidea, 9 (Zubieta auzoa) 20170, Usurbil.
-                        </p>
-                    </div>
-                </a>
+        
+            <div id="login-success" class="login-success-container" class="hidden">
+                <h2>Bienvenido, usuario</h2>
+                <p>Has iniciado sesión correctamente.</p>
             </div>
-            <div class="carta">
-                <a href="#">
-                    <img src="img/pexels-tima-miroshnichenko-7991182.jpg" alt="Película 1">
-                    <div class="descripcion">
-                        <h3>CINES DONOSTIA</h3>
-                        <i class="fa-solid fa-location-dot"></i>Aitzol Parkea, 2, 20011 Donostia-San
-                        Sebastian, Gipuzkoa.
-                    </div>
-                </a>
-            </div>
-            <div class="carta">
-                <img src="img/pexels-tima-miroshnichenko-7991274.jpg" alt="Película 2">
-                <div class="descripcion">
-                    <h3>CINES LASARTE</h3>
-                    <a href="#"><i class="fa-solid fa-location-dot"></i>Donostia Etorbidea, 5, 20160 Lasarte-Oria,
-                        Gipuzkoa.</a>
-                </div>
-            </div>
-            <div class="carta">
-                <img src="img/pexels-cottonbro-studio-8272156.jpg" alt="Película 3">
-                <div class="descripcion">
-                    <h3>CINES ANDOAIN</h3>
-                    <a href="#"><i class="fa-solid fa-location-dot"></i>La Salle Hiribidea, 5, 20140 Andoain,
-                        Gipuzkoa.</a>
-                </div>
-            </div>
-        </div>
-        <div class="apartado3">
-            <div class="titulo">
-                <h1>¿QUIENES SOMOS?</h1>
-            </div>
-            <div class="texto">
-                <h2><b>POPCORN CINES</b>, es una empresa que gestiona cines en Guipúzcoa, España. Nos enorgullece
-                    ser parte
-                    de la
-                    rica tradición cinematográfica de esta comunidad, ofreciendo una
-                    experiencia única para los amantes del cine y las familias por igual.</h2>
-                <h2>Nuestra misión es proporcionar un lugar cómodo para los amantes del cine,
-                    donde puedan disfrutar de películas en la pantalla grande en un entorno acogedor.
+        
 
-                    Desde los últimos éxitos de taquilla hasta películas independientes y eventos especiales,
-                    ofrecemos una amplia variedad de opciones para satisfacer todos los gustos y edades.</h2>
-            </div>
-        </div>
+
     </main>
 
-    <!-- Footer de la página-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.querySelector('.form-login'); 
+            const username = document.getElementById("username");
+            const password = document.getElementById("password");
+            const button = document.getElementById("buttonlogin");
+
+            // escucha al formulario
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); // evita el envio formulario por defecto
+
+
+                loggedIn = true; // inicio sesion existoso(supuesto)
+
+                if (loggedIn) {
+                    
+                    document.getElementById('container-login').style.display = 'none';
+                    document.getElementById('login-success').classList.remove('hidden');
+                } else {
+                    console.log('Inicio de sesión fallido');
+                }
+                    // Obtén los valores del nombre de usuario y contraseña
+                    const usernameValue = username.value;
+                    const passwordValue = password.value;
+
+                    const data = {
+                        username: usernameValue,
+                        password: passwordValue
+                    };
+                    console.log(data);
+
+                    // vacia los input
+                    username.value = '';
+                    password.value = '';
+
+                });
+             });
+    </script>
+
+
     <footer>
         <div class="footer-container">
             <div class="footer-column">
@@ -218,7 +209,7 @@
                 <a href="#">Política de privacidad</a>
                 <a href="#">Términos y condiciones</a>
                 <a href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
-                    rel="license noopener noreferrer" style="display:inline-block;"><img
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-ND 4.0<img
                         style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
                         src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
                         alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"

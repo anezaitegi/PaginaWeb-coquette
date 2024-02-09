@@ -6,6 +6,7 @@
     --gris: #212121;
     --morado: #220c23;
     --gradiente: linear-gradient(to bottom, #220c23, #212121);
+    --gradientelogin: linear-gradient(to right, #cb232c, #ce1d61);
 }
 
 * {
@@ -130,7 +131,7 @@ main .contenedor .carta {
     flex-flow: column;
     align-items: center;
     text-align: center;
-    background-color: var(--fondo);
+    background-color: var(--fondo);/*oroitz lo manejo con un fondo de color del div solamente recordar contenedor CARTA, NO DESCRIPCION */
     margin: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -163,6 +164,11 @@ main .peliculas-container {
 
 .text-center {
     text-align: center;
+}
+
+.color-black{
+    color:#220c23;
+    
 }
 
 main .pelicula-mini {
@@ -515,6 +521,75 @@ footer .footer-container .footer-column {
     padding: 10px;
     margin: 5px;
 }
+/* pag login*/
+#container-login.body-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+}
+
+#container-login .form-login {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    text-align: center;
+    padding: 20px 25px;
+    box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
+}
+
+#container-login form .tittle {
+    color: #252525;
+    font-size: 35px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+#container-login form label {
+    margin-bottom: 35px;
+}
+
+#container-login form label .fa-solid {
+    font-size: 20px;
+    color: #cb232c;
+    margin-right: 10px;
+}
+
+#container-login form label input {
+    outline: none;
+    border: none;
+    color: #252525;
+    border-bottom: solid 1px #ce1d61;
+    padding: 0 5px;
+    font-size: 18px;
+}
+
+#container-login form label input::placeholder {
+    color: rgba(37, 37, 37, 0.5);
+}
+
+#container-login form .link {
+    color: #252525;
+    margin-bottom: 15px;
+}
+
+#container-login form button {
+    color: #fff;
+    border: none;
+    background: var(--gradientelogin);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 20px;
+}
+/*pag login logeado*/
+/* Pagina de inicio de sesión logeado */
+
+
+
+
+
+
 
 @media (min-width:901px) {
 
@@ -757,6 +832,69 @@ footer .footer-container .footer-column {
     footer .footer-container .footer-column a:hover {
         color: var(--texto2);
     }
+
+    #container-login.body-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        
+    }
+    
+    #container-login .form-login {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        text-align: center;
+        padding: 20px 25px;
+        box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
+    }
+    
+    #container-login form .tittle {
+        color: #252525;
+        font-size: 35px;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    
+    #container-login form label {
+        margin-bottom: 35px;
+    }
+    
+    #container-login form label .fa-solid {
+        font-size: 20px;
+        color: #cb232c;
+        margin-right: 10px;
+    }
+    
+    #container-login form label input {
+        outline: none;
+        border: none;
+        color: #252525;
+        border-bottom: solid 1px #ce1d61;
+        padding: 0 5px;
+        font-size: 18px;
+    }
+    
+    #container-login form label input::placeholder {
+        color: rgba(37, 37, 37, 0.5);
+    }
+    
+    #container-login form .link {
+        color: #252525;
+        margin-bottom: 15px;
+    }
+    
+    #container-login form button {
+        color: #fff;
+        border: none;
+        background: var(--gradientelogin);
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    
 }
 
 @media (max-width:900px) {
@@ -1096,6 +1234,67 @@ footer .footer-container .footer-column {
         text-decoration: underline;
     }
 
+    #container-login.body-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        
+    }
+    
+    #container-login .form-login {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        text-align: center;
+        padding: 20px 25px;
+        box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
+    }
+    
+    #container-login form .tittle {
+        color: #252525;
+        font-size: 35px;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    
+    #container-login form label {
+        margin-bottom: 35px;
+    }
+    
+    #container-login form label .fa-solid {
+        font-size: 20px;
+        color: #cb232c;
+        margin-right: 10px;
+    }
+    
+    #container-login form label input {
+        outline: none;
+        border: none;
+        color: #252525;
+        border-bottom: solid 1px #ce1d61;
+        padding: 0 5px;
+        font-size: 18px;
+    }
+    
+    #container-login form label input::placeholder {
+        color: rgba(37, 37, 37, 0.5);
+    }
+    
+    #container-login form .link {
+        color: #252525;
+        margin-bottom: 15px;
+    }
+    
+    #container-login form button {
+        color: #fff;
+        border: none;
+        background: var(--gradientelogin);
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
 }
 
 @media (max-width:700px) {
@@ -1194,4 +1393,66 @@ footer .footer-container .footer-column {
         
     }
 
+    #container-login.body-login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        
+    }
+    
+    #container-login .form-login {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        text-align: center;
+        padding: 20px 25px;
+        box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
+    }
+    
+    #container-login form .tittle {
+        color: #252525;
+        font-size: 35px;
+        font-weight: 800;
+        margin-bottom: 30px;
+    }
+    
+    #container-login form label {
+        margin-bottom: 35px;
+    }
+    
+    #container-login form label .fa-solid {
+        font-size: 20px;
+        color: #cb232c;
+        margin-right: 10px;
+    }
+    
+    #container-login form label input {
+        outline: none;
+        border: none;
+        color: #252525;
+        border-bottom: solid 1px #ce1d61;
+        padding: 0 5px;
+        font-size: 18px;
+    }
+    
+    #container-login form label input::placeholder {
+        color: rgba(37, 37, 37, 0.5);
+    }
+    
+    #container-login form .link {
+        color: #252525;
+        margin-bottom: 15px;
+    }
+    
+    #container-login form button {
+        color: #fff;
+        border: none;
+        background: var(--gradientelogin);
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    
+    
 }
