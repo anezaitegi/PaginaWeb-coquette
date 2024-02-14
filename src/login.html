@@ -105,16 +105,7 @@
                     </div>
                 </div>
             </nav>
-        </div> <!--<div class="menu-item">
-                    <a href="./index.html" target="_blank" class="">Tickets</a>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" id="buscar">
-                    <label for="buscar" class="bot-buscar"><i class="fa-solid fa-magnifying-glass"></i></label>
-                    <div class="buscar-item">
-                        <input type="text" placeholder="Buscar...">
-                    </div>
-                </div>-->
+        </div> 
     </header>
     <main>
 
@@ -135,10 +126,10 @@
         </div>
 
         
-            <div id="login-success" class="login-success-container" class="hidden">
-                <h2>Bienvenido, usuario</h2>
-                <p>Has iniciado sesión correctamente.</p>
-            </div>
+        <div id="login-success" class="login-success-container">
+            <h2>Bienvenido, usuario</h2>
+            <p>Has iniciado sesión correctamente.</p>
+        </div>
         
 
 
@@ -161,11 +152,12 @@
                 if (loggedIn) {
                     
                     document.getElementById('container-login').style.display = 'none';
-                    document.getElementById('login-success').classList.remove('hidden');
+                    document.getElementById('login-success').style.display = 'flex';
                 } else {
                     console.log('Inicio de sesión fallido');
                 }
-                    // Obtén los valores del nombre de usuario y contraseña
+                    // guardar los valores
+
                     const usernameValue = username.value;
                     const passwordValue = password.value;
 

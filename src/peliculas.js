@@ -1,18 +1,20 @@
 /*  1.- Primer paso crear muchas funciones.
-    2.- Luego intentar leer toda la informacion desde el API de peliculas
-    3.- Intentar usar solo un js
+    2.- Luego intentar leer toda la informacion desde el API de peliculas (listo)
+    3.- Intentar usar solo un js (falta)
     4.- Una vez que tenga todas las peliculas con la informacion sacada desde la API o parseo de json 
-    realizar detalles con js, como botones, animaciones o etc.
-    5.- Tambien arreglar detalles como arreglar el menu de movil que funciona pero se repite codigo.
-    6.- Ver sino tambien se puede tomar el mismo codigo en todas las paginas de html que se repiten como en el header/footer.
+    realizar detalles con js, como botones, animaciones o etc. ( a medias)
+    5.- Tambien arreglar detalles como arreglar el menu de movil que funciona pero se repite codigo. (falta)
+    6.- Ver sino tambien se puede tomar el mismo codigo en todas las paginas de html que se repiten como en el header/footer. ( no se si lo hare)
     7.- Al intentar cambiar todas las peliculas de las paginas en una sola pagina PELICULAS--> tendria que cambiar la pelicula principal 
     en el CSS, o dejo una sola. COMO UNA PORTADA. (REalizado)
     8.- Falta hacer que las paginas html esten relacionadas con el boton ( quizas no usa un onclick o quizas deba usar un solo js para que lo tome?)
-    9.- Me falta filtrar los titulos por generos ${genero: generogetid()}(por ejemplo)
-    10.- arreglar los links de youtube, ver si los dejo o no,.
-    11.- ver si la api me pasa peliculas espeicificas para usar en el grid o en la lista de peliculas de màs abajo
+    9.- Me falta filtrar los titulos por generos ${genero: generogetid()}(por ejemplo)(listo)
+    10.- arreglar los links de youtube, ver si los dejo o no,(listo)
+    11.- ver si la api me pasa peliculas espeicificas para usar en el grid o en la lista de peliculas de màs abajo (listo)
     12.- hacer que la pagina web traiga informacion desde la base de datos pero cual base de datos?? supongo que desde la que estan creando.
-    13.- Podria hacer otra pagina de estrenos. hare una pagina de login tamnbien
+    13.- Podria hacer otra pagina de estrenos. hare una pagina de login tamnbien( pagina mejorada de estrenos)
+    14.- hacer el login con conexion a bbdd y la direccion de los cines.
+    15.- realizar el unico js y ver que funciones me funcionan y porque no me funciona
 
 
 

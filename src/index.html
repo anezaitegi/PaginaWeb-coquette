@@ -105,16 +105,7 @@
                     </div>
                 </div>
             </nav>
-        </div> <!--<div class="menu-item">
-                    <a href="./index.html" target="_blank" class="">Tickets</a>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" id="buscar">
-                    <label for="buscar" class="bot-buscar"><i class="fa-solid fa-magnifying-glass"></i></label>
-                    <div class="buscar-item">
-                        <input type="text" placeholder="Buscar...">
-                    </div>
-                </div>-->
+        </div>
     </header>
 
     <main id="main-estrenos">
@@ -136,6 +127,7 @@
 
 
                     createIndex(data.results);
+                    
                 } catch (error) {
                     console.error('Error:', error);
                 }
@@ -167,10 +159,34 @@
                     // filtrar,(retornar la copia de un arreglo desde el indice del inicio hasta el penúltimo final, excluyendo el final)
                     // esta filtrando cuando se elige el género en el menú y se filtra por consola
                     console.log(filteredMovies.slice(0, 10));
-                    renderMovies(filteredMovies.slice(0, 10));
+                    fecthGenrerMovies(filteredMovies, genre_id);
+                    console.log("obtuve las peliculas de genero: ");
+
                 } catch (error) {
                     console.error('Error:', error);
                 }
+            }
+
+            function fecthGenrerMovies(movies, genero) {
+
+                const imagengrid = document.getElementById("main-estrenos");
+                const containerPelis = document.createElement("div");
+                containerPelis.className = "width-100 contenedor";
+
+                const tituloGenero = document.createElement("div");
+                tituloGenero.className = "titulo";
+                const h1titulogenero = document.createElement("h1");
+                h1titulogenero.textContent = "Los más vistos en: " + getGenreByID(genero);
+                tituloGenero.appendChild(h1titulogenero);
+                imagengrid.appendChild(tituloGenero);
+
+                movies.slice(0, 4).forEach(movie => {
+                    createCARD(movie, containerPelis);
+                    console.log("agregadas peliculas genero x:");
+
+                })
+                imagengrid.appendChild(containerPelis);
+
             }
 
             // funcion diccionario para saber cuales son los generos usando los id de la api
@@ -205,19 +221,17 @@
             }
 
             // funcion crear tarjetas
-            function createCARDS(movie) {
-                const containerPelis = document.createElement("div");
-                containerPelis.className = "container-cards width-100";
+            function createCARD(movie, containerPelis) {
 
-                const tituloGenero = document.createElement("div");
-                tituloGenero.className = "titulo";
-                const h1titulogenero = document.createElement("h1");
-                h1titulogenero.textContent = "Los más vistos en: " + getGenreByID(movie.genre_ids[0]); // Solo toma el primer género por simplicidad
-                tituloGenero.appendChild(h1titulogenero);
-                containerPelis.appendChild(tituloGenero);
+                // Poner peliculas por genero:
 
-                const containerCard = document.createElement("div");
-                containerCard.className = "contenedor";
+                // 1.Obtener arreglo de peliculas del Genero Horror
+                // 2.Poner titulo: Lo más visto en horror
+                // 3.Hacer un foreach que ponga una tarjeta por cada pelicula 
+
+                // Repetir para los demás generos
+
+                // carta individual 
 
                 const card = document.createElement("div");
                 card.className = "carta";
@@ -232,15 +246,13 @@
                 description.innerHTML = `<h3>${movie.title}</h3><br><p>Género: ${getGenreByID(movie.genre_ids[0])}</p>`;
                 card.appendChild(description);
 
-                containerCard.appendChild(card);
-                containerPelis.appendChild(containerCard);
-
-                return containerPelis;
+                containerPelis.appendChild(card);
+        
             }
 
 
             //funcion crear el index
-            function createIndex(imagenes) {
+           async function createIndex(movies) {
                 const imagengrid = document.getElementById("main-estrenos");
                 console.log(imagengrid);
                 imagengrid.innerHTML = "";
@@ -254,12 +266,12 @@
 
                 const tituloPrincipal = document.createElement("h1");
                 tituloPrincipal.className = "titulo";
-                tituloPrincipal.innerText = imagenes[18].title;// solo ocupare la primera posicion de la lista (pelicula)
-                tituloPrincipal.style.color = "black";
+                tituloPrincipal.innerText = movies[0].title;// solo ocupare la primera posicion de la lista (pelicula)
+                //tituloPrincipal.style.color = "black";
 
                 const descripcionPrincipal = document.createElement("h3");
-                descripcionPrincipal.innerHTML = imagenes[18].overview;// solo ocupare la primera posicion de la descripcion
-                descripcionPrincipal.style.color = "black";
+                descripcionPrincipal.innerHTML = movies[0].overview;// solo ocupare la primera posicion de la descripcion
+                
 
 
                 // crear los botones que van dentro( sin funcionalidad)
@@ -275,7 +287,7 @@
                 imagengrid.appendChild(peliculaPrincipal);
 
                 // para manejar el CSS desde el JS se le ponge.style.
-                peliculaPrincipal.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${imagenes[18].backdrop_path}')`;
+                peliculaPrincipal.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movies[0].backdrop_path}')`;
 
                 // el titulo de cada pagina( me falta poder asignarle el genero. solo si puedo sino no )
                 const tituloMasVistos = document.createElement("div");
@@ -290,9 +302,9 @@
                 const container_grid = document.createElement("div");
                 container_grid.className = "container-img";
 
-                imagenes.slice(12, 19).forEach(imagen => {
+                movies.slice(0, 7).forEach(imagen => {
 
-
+                    // controlar que la imagen sea del porte?
                     const boxImg = document.createElement("div");
                     boxImg.className = "box-img";
                     const figure1 = document.createElement("figure");
@@ -310,17 +322,18 @@
 
                 // aqui podria hacer un for que me inserte cada pelicula CARTA. como en html
                 imagengrid.appendChild(container_grid);
-                console.log("Grid de imágenes agregado al DOM");
+               
+                await Promise.all([
+                    filterByGenre(27),
+                    filterByGenre(18),
+                    filterByGenre(35),
+                    filterByGenre(878)
+                ]);
 
-
-                imagenes.forEach(movie => {
-                    const movieCard = createCARDS(movie);
-                    imagengrid.appendChild(movieCard);
-                });
                 console.log("Tarjetas de películas agregadas al DOM");
 
-                //default ( funcion para insertar al final del dom el elemento desde js)
-                imagengrid.insertAdjacentHTML('beforeend',`
+                //default ( funcion para insertar al final del dom el elemento desde js obligatoriamente)
+                imagengrid.insertAdjacentHTML('beforeend', `
                 <div class="apartado3">
                     <div class="titulo">
                         <h1>¿ NO ERES PARTE DEL CLUB DE SOCIOS ?</h1>
@@ -342,6 +355,7 @@
 
             document.addEventListener("DOMContentLoaded", fetchPopularMovies);
         </script>
+
     </main>
 
     <!-- Footer de la página-->

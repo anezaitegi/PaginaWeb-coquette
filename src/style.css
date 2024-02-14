@@ -88,6 +88,7 @@ main #pagdrama {
     background-position: center center;
     background-size: cover;
 }
+
 /* aqui deberia hacer algo parecido pero con cada pelicula. pero tendria que arreglar la pagina pelicula. SOLO SI ME DA TIEMPO*/
 main #pagtickets {
     background: linear-gradient(rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%), url('img/handiabackdrops.jpg');
@@ -131,10 +132,12 @@ main .contenedor .carta {
     flex-flow: column;
     align-items: center;
     text-align: center;
-    background-color: var(--fondo);/*oroitz lo manejo con un fondo de color del div solamente recordar contenedor CARTA, NO DESCRIPCION */
+    background-color: var(--fondo);
+    /*oroitz lo manejo con un fondo de color del div solamente recordar contenedor CARTA, NO DESCRIPCION */
     margin: 10px;
     border-radius: 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    max-width: 300px;
 }
 
 /*main-apartado3(QUIENES SOMOS, SOCIOS)*/
@@ -166,10 +169,15 @@ main .peliculas-container {
     text-align: center;
 }
 
-.color-black{
-    color:#220c23;
-    
+.color-black {
+    color: #220c23;
+
 }
+
+/*contenedor cards pag index*/
+
+
+
 
 main .pelicula-mini {
     display: flex;
@@ -320,6 +328,7 @@ main .pelicula-mini .container-resumen .duracion-ticket .main-section {
     overflow: hidden;
     align-items: center;
 }
+
 /*boton ticket*/
 main .pelicula-mini .container-resumen .duracion-ticket .main-section .first-button {
     background: rgb(115, 15, 209);
@@ -357,6 +366,7 @@ main .pelicula-mini .container-resumen .duracion-ticket .main-section .second-bu
     transition-duration: 0.6s;
     border-radius: 10px;
 }
+
 /*Tickets*/
 main .contenedor-dia {
     display: flex;
@@ -450,10 +460,10 @@ main .imagen img {
     margin: 20px;
 }
 
- /*intento grid*/
+/*intento grid*/
 
- main .container-img {	
-    width: 100%;   
+main .container-img {
+    width: 100%;
     max-width: 1400px;
     margin: auto;
     margin-top: 60px;
@@ -465,23 +475,23 @@ main .imagen img {
 }
 
 main .container-img .box-img figure {
-    width: 100%;    
+    width: 100%;
     height: 100%;
 }
 
 main .container-img .box-img img {
-    width: 100%;    
+    width: 100%;
     height: 100%;
     object-fit: cover;
     position: relative;
     overflow: hidden;
 }
 
-main .container-img .box-img:nth-child(1){
+main .container-img .box-img:nth-child(1) {
     grid-column-start: span 2;
 }
 
-main .container-img .box-img:nth-child(4){
+main .container-img .box-img:nth-child(4) {
     grid-row-start: span 2;
 }
 
@@ -521,13 +531,14 @@ footer .footer-container .footer-column {
     padding: 10px;
     margin: 5px;
 }
+
 /* pag login*/
 #container-login.body-login {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    
+
 }
 
 #container-login .form-login {
@@ -582,7 +593,19 @@ footer .footer-container .footer-column {
     cursor: pointer;
     font-size: 20px;
 }
+
 /*pag login logeado*/
+
+#login-success{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c45fe976;
+    min-height: 90vh;
+    min-width: 80%;
+    
+}
 /* Pagina de inicio de sesión logeado */
 
 
@@ -721,7 +744,7 @@ footer .footer-container .footer-column {
         margin-top: 30px;
     }
 
-    .borde-top{
+    .borde-top {
         border-top: solid 5px var(--rosa);
     }
 
@@ -808,8 +831,8 @@ footer .footer-container .footer-column {
 
     /*Intento Grid*/
 
-    main .container-img {	
-        width: 80%;   
+    main .container-img {
+        width: 80%;
         max-width: 1400px;
         margin: auto;
         margin-top: 60px;
@@ -838,9 +861,9 @@ footer .footer-container .footer-column {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        
+
     }
-    
+
     #container-login .form-login {
         display: flex;
         flex-direction: column;
@@ -849,24 +872,24 @@ footer .footer-container .footer-column {
         padding: 20px 25px;
         box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
     }
-    
+
     #container-login form .tittle {
         color: #252525;
         font-size: 35px;
         font-weight: 800;
         margin-bottom: 30px;
     }
-    
+
     #container-login form label {
         margin-bottom: 35px;
     }
-    
+
     #container-login form label .fa-solid {
         font-size: 20px;
         color: #cb232c;
         margin-right: 10px;
     }
-    
+
     #container-login form label input {
         outline: none;
         border: none;
@@ -875,16 +898,16 @@ footer .footer-container .footer-column {
         padding: 0 5px;
         font-size: 18px;
     }
-    
+
     #container-login form label input::placeholder {
         color: rgba(37, 37, 37, 0.5);
     }
-    
+
     #container-login form .link {
         color: #252525;
         margin-bottom: 15px;
     }
-    
+
     #container-login form button {
         color: #fff;
         border: none;
@@ -894,7 +917,9 @@ footer .footer-container .footer-column {
         font-size: 20px;
     }
 
-    
+   
+
+
 }
 
 @media (max-width:900px) {
@@ -1144,6 +1169,7 @@ footer .footer-container .footer-column {
         justify-content: center;
         padding: 20px;
     }
+
     /*boton Trailer*/
     main .pelicula-mini .container-buttom button {
         align-items: center;
@@ -1214,9 +1240,9 @@ footer .footer-container .footer-column {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 10px;
         grid-template-rows: 200px;
-    }    
-    
-    main .container-img .box-img:nth-child(1){
+    }
+
+    main .container-img .box-img:nth-child(1) {
         grid-column-start: span 1;
     }
 
@@ -1239,9 +1265,9 @@ footer .footer-container .footer-column {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        
+
     }
-    
+
     #container-login .form-login {
         display: flex;
         flex-direction: column;
@@ -1250,24 +1276,24 @@ footer .footer-container .footer-column {
         padding: 20px 25px;
         box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
     }
-    
+
     #container-login form .tittle {
         color: #252525;
         font-size: 35px;
         font-weight: 800;
         margin-bottom: 30px;
     }
-    
+
     #container-login form label {
         margin-bottom: 35px;
     }
-    
+
     #container-login form label .fa-solid {
         font-size: 20px;
         color: #cb232c;
         margin-right: 10px;
     }
-    
+
     #container-login form label input {
         outline: none;
         border: none;
@@ -1276,16 +1302,16 @@ footer .footer-container .footer-column {
         padding: 0 5px;
         font-size: 18px;
     }
-    
+
     #container-login form label input::placeholder {
         color: rgba(37, 37, 37, 0.5);
     }
-    
+
     #container-login form .link {
         color: #252525;
         margin-bottom: 15px;
     }
-    
+
     #container-login form button {
         color: #fff;
         border: none;
@@ -1295,6 +1321,8 @@ footer .footer-container .footer-column {
         font-size: 20px;
     }
 
+  
+
 }
 
 @media (max-width:700px) {
@@ -1302,10 +1330,11 @@ footer .footer-container .footer-column {
         display: none;
     }
 
- main .peliculas-container .pelicula-mini{
+    main .peliculas-container .pelicula-mini {
         flex-flow: column;
         align-items: center;
     }
+
     main .contenedor-dia {
         display: flex;
         justify-content: space-evenly;
@@ -1385,12 +1414,12 @@ footer .footer-container .footer-column {
     main .container-img {
         width: 65%;
         grid-template-columns: repeat(1, 1fr);
-        
-    }  
-    
-    main .container-img .box-img img {   
+
+    }
+
+    main .container-img .box-img img {
         height: 100%;
-        
+
     }
 
     #container-login.body-login {
@@ -1398,9 +1427,9 @@ footer .footer-container .footer-column {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-        
+
     }
-    
+
     #container-login .form-login {
         display: flex;
         flex-direction: column;
@@ -1409,24 +1438,24 @@ footer .footer-container .footer-column {
         padding: 20px 25px;
         box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
     }
-    
+
     #container-login form .tittle {
         color: #252525;
         font-size: 35px;
         font-weight: 800;
         margin-bottom: 30px;
     }
-    
+
     #container-login form label {
         margin-bottom: 35px;
     }
-    
+
     #container-login form label .fa-solid {
         font-size: 20px;
         color: #cb232c;
         margin-right: 10px;
     }
-    
+
     #container-login form label input {
         outline: none;
         border: none;
@@ -1435,16 +1464,16 @@ footer .footer-container .footer-column {
         padding: 0 5px;
         font-size: 18px;
     }
-    
+
     #container-login form label input::placeholder {
         color: rgba(37, 37, 37, 0.5);
     }
-    
+
     #container-login form .link {
         color: #252525;
         margin-bottom: 15px;
     }
-    
+
     #container-login form button {
         color: #fff;
         border: none;
@@ -1453,6 +1482,5 @@ footer .footer-container .footer-column {
         cursor: pointer;
         font-size: 20px;
     }
-    
-    
+
 }
