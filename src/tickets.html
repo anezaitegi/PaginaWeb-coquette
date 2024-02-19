@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Aqui pagina responsiva-->
+    <link rel="stylesheet" href="style.css"> <!-- Enlace que se liga al css para editar la pagina web-->
+    <link rel="icon" type="image/jpg" href="img/logocineusurbil.png"> <!-- icono de la pagina -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <!-- JS-->
+
+    <!-- pagina que use para agregar iconos a nuestra pagina web -->
+    <title>Cine Usurbil|Películas</title>
+</head>
+
+<body>
+
+    <!-- Barra de navegación y header -->
+    <header>
+
+        <!--Se verá solo en pantallas grandes-->
+        <div class="container-grande">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <div class="menu-item">
+                    <a href="./index.html" target="">Estrenos</a>
+                </div>
+                <div class="menu-item">
+                    <input type="checkbox" id="genero-grande">
+                    <label for="genero-grande" class="bot-genero">Películas</label>
+                    <div class="dropdown-genero">
+                        <div class="genero-item">
+                            <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
+                        </div>
+                        <div class="genero-item">
+                            <a target="" onclick="filterByGenre(18)">Drama</a>
+                        </div>
+                        <div class="genero-item">
+                            <a target="" onclick="filterByGenre(35)">Comedia</a>
+                        </div>
+                        <div class="genero-item">
+                            <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-item">
+                    <a href="./cines.html" target="">Cines</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./pagtickets.html" target="" class="activo">Tickets</a>
+                </div>
+                <div class="menu-item">
+                    <a href="./index.html" target="">Login || Sign in</a>
+                </div>
+            </nav>
+        </div>
+
+        <!--Se verá solo en pantallas de móvil-->
+        <div class="container-movil">
+            <div class="logo-container">
+                <img src="img/logocineusurbil.png" alt="Cine Usurbil Logo">
+                <h2 class="logotipo">Cine Usurbil</h2>
+            </div>
+
+            <nav>
+                <input type="checkbox" id="menu">
+                <label for="menu" class="bot-submenu"> ☰ </label>
+                <div class="dropdown-menu">
+                    <div class="menu-item">
+                        <a href="./index.html" target="">Estrenos</a>
+                    </div>
+                    <div class="menu-item">
+                        <span>Películas</span>
+                        <input type="checkbox" id="genero">
+                        <label for="genero" class="bot-genero"> ▼ </label>
+                        <div class="dropdown-genero">
+                            <div class="genero-item">
+                                <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
+                            </div>
+                            <div class="genero-item">
+                                <a target="" onclick="filterByGenre(18)">Drama</a>
+                            </div>
+                            <div class="genero-item">
+                                <a target="" onclick="filterByGenre(35)">Comedia</a>
+                            </div>
+                            <div class="genero-item">
+                                <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./cines.html" target="">Cines</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./pagtickets.html" target="" class="activo">Tickets</a>
+                    </div>
+                    <div class="menu-item">
+                        <a href="./index.html" target="">Login || Sign in</a>
+                    </div>
+                </div>
+            </nav>
+        </div> <!--<div class="menu-item">
+                    <a href="./index.html" target="_blank" class="">Tickets</a>
+                </div>
+                <div class="menu-item">
+                    <input type="checkbox" id="buscar">
+                    <label for="buscar" class="bot-buscar"><i class="fa-solid fa-magnifying-glass"></i></label>
+                    <div class="buscar-item">
+                        <input type="text" placeholder="Buscar...">
+                    </div>
+                </div>-->
+    </header>
+    <main id="main-tickets">
+        <!-- 
+                // sacar informacion desde la base de datos, es una opcion, el tema es que handia ya no esta en las mas vistas
+                entonces realmente tendria que pasarlas por api al momento de apretar el click en la foto
+             cambiar el boton de trailer por ver mas? 
+
+            -->
+
+        <!-- Aqui parte principal  texto-->
+
+        <!--titulo-->
+
+        <!-- Div pelicula-->
+
+        <!-- imagen sala cine (podria cambiarla al final de la pagina)-->
+
+        <br>
+
+
+        <div class="contendor">
+            <div class="titulo-dias">
+
+                <h2>
+                    <span class="tachado">Lunes Martes Miércoles Jueves Viernes </span>
+                    <span class="no-tachado">Sábado Domingo</span>
+                </h2>
+
+            </div>
+            <div class="contenedor-dia">
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Sábado 21 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Sábado 28 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Sábado 04 Noviembre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Elegir otra fecha</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titulo-dias">
+
+                <h2>
+                    Películas para el Domingo <i class="fa-solid fa-film"></i>
+                </h2>
+
+            </div>
+            <div class="contenedor-dia">
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Domingo 22 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegida / No Elegida</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Domingo 29 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegida / No Elegida</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Domingo 05 Nov</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegida / No Elegida </p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3>Otros Domingos</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegidas </p>
+                    </div>
+                </div>
+            </div>
+            <div class="titulo-dias">
+                <h2>
+                    Posters "Handia"
+                </h2>
+            </div>
+            <div>
+                <div class="imagen-final-poster">
+                    <img class="imagen" src="img/handiabackdrops.jpg" alt="Imagen final" title="Handia">
+                </div>
+                <div class="imagen-final-poster">
+                    <img class="imagen" src="img/handiabackdrops2.jpg" alt="Imagen final" title="Handia">
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- aqui comienza el footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-film"></i>Quiénes somos</a>
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-location-dot"></i>Cómo llegar</a>
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-circle-info"></i>Atención
+                    al cliente</a>
+                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-phone"></i> +34 606 060 6060</a>
+            </div>
+            <div class="footer-column">
+                <p><i class="fa-solid fa-address-card"></i> ¿Eres socio?</p>
+                <p>Conoce nuestros beneficios por ser socio del club</p>
+                <p>Cine Usurbil</p>
+                <div class="rrss"> <!-- Iconos del footer -->
+                    <a><i class="fa-brands fa-instagram"></i></a>
+                    <a><i class="fa-brands fa-facebook"></i></a>
+                    <a><i class="fa-brands fa-youtube"></i></a>
+                    <a><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <a href="#">Aviso legal</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Términos y condiciones</a>
+                <a href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;"><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+                        alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+                        alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"
+                        alt="licencia"></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+        // ERRORES POR ARREGLAR, SOLO CREAR LA INFORMACION DE LA PELICULA createElement();
+
+        // Llamada a las películas por ID a la API
+        async function fetchMovieId(movieId) {
+            const url = `https://api.themoviedb.org/3/movie/${movieId}?language=es-ES&page=1`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
+                }
+            };
+            try {
+                const response = await fetch(url, options);
+                const data = await response.json();
+                console.log(data);
+                return data; // Devuelve los datos obtenidos de la película
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // guardar el ID de la pelicula en el localStorage
+        function saveMovieId(id) {
+            localStorage.setItem('idPeliculaSeleccionada', id);
+            console.log('ID de la película guardado en localStorage:', id);
+        }
+
+        // funcion para obtener el ID de la pelicula desde el localStorage
+        function getIDMovie() {
+            return localStorage.getItem('idPeliculaSeleccionada');
+        }
+
+        // funcion crear (contenedores) pelicula(s)
+        function createMovieElement(movie) {
+            // contenedor principal
+            const peliculaContainer = document.createElement("div");
+            peliculaContainer.className = "peliculas-container";
+            peliculaContainer.innerHTML = `<br>`;
+
+            // contenedor especifico (cada pelicula)
+            const peliculaMini = document.createElement("div");
+            peliculaMini.className = "pelicula-mini borde-top";
+
+            // dentro de cada contenedor 
+            const caratula = document.createElement("div");
+            caratula.className = "caratula";
+            const imagen = document.createElement("img");
+            imagen.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+            imagen.alt = `Carátula de la película ${movie.title}`;
+            caratula.appendChild(imagen);
+            const containerBoton = document.createElement("div");
+            containerBoton.className = "container-buttom";
+            const form = document.createElement("form");
+            const botonTrailer = document.createElement("button");
+            // arreglar esto sino que no vaya a ningun lado.
+            botonTrailer.setAttribute("formaction", "https://youtu.be/"); // ver que hago con el link? como podria pasarlo. o sino no lo hago funcional.
+            botonTrailer.setAttribute("formtarget", "_blank");
+            // i = imagen "play" dibujo vectorizado
+            botonTrailer.innerHTML = `<i class="fa-regular fa-circle-play" style="color: #fcfcfc;"></i> Trailer`;
+            form.appendChild(botonTrailer);
+            containerBoton.appendChild(form);
+            // contenedor resumen
+            const containerResumen = document.createElement("div");
+            containerResumen.className = "container-resumen width-100";
+            const resumen = document.createElement("div");
+            resumen.className = "resumen";
+            // split para separar la fecha y solo colocar la primera posicion(año)
+            resumen.innerHTML = `<h2>${movie.title} (${movie.release_date.split("-")[0]})</h2>
+                <br>
+                <p>${movie.overview}</p>`;
+            // contenedor duracion-adulto-genero-boton ticket
+            const duracionTicket = document.createElement("div");
+            duracionTicket.className = "duracion-ticket";
+            // duracion ticket tiene dos contenedores grandes: duracion y boton ticket.
+            // dentro de duracion: duracionTiempo-ADULTO-GENEROS
+            const duracion = document.createElement("div");
+            duracion.className = "duracion";
+            duracion.innerHTML = "<br>";
+            // duracion no lo estoy usando todavia
+            const duracionTiempo = document.createElement("h3");
+            duracionTiempo.innerHTML = "Duración: X";
+            // ADULTO o no --> crear
+            const duracionEdad = document.createElement("h3");
+            duracionEdad.innerHTML = `${getClasification(movie.adult)}`; // TENDRIA QUE EXPOERTAR LA FUNCION
+
+            //duracion.appendChild(duracionTiempo);
+
+            const generosPelicula = movie.genre_ids;
+            generosPelicula.forEach(genero => {
+                const generoBox = document.createElement("div");
+                generoBox.className = "borde-genero";
+                generoBox.innerHTML = `<h4>${getGenreByID(genero)}</h4>`;
+                duracion.appendChild(generoBox);
+            });
+            // ADULTO O NO --> insertar
+            duracion.appendChild(duracionEdad);
+            // BOTON tickets.
+            const mainSection = document.createElement("div");
+            mainSection.className = "main-section";
+            const firstButton = document.createElement("button");
+            firstButton.className = "first-button";
+            firstButton.innerHTML = `¡ Tickets ! <i class="fa-solid fa-ticket"></i>`;
+            const secondButton = document.createElement("button");
+            secondButton.className = "second-button";
+            secondButton.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Compra Ahora!`;
+
+            // contenedor de caratula y boton de trailer
+            const caratulaDiv = document.createElement("div");
+            caratulaDiv.appendChild(caratula);
+            caratulaDiv.appendChild(containerBoton);
+            // otros contenedores 
+            peliculaMini.appendChild(caratulaDiv);
+            peliculaMini.appendChild(containerResumen);
+            resumen.appendChild(duracionTicket);
+            duracionTicket.appendChild(duracion);
+            duracionTicket.appendChild(mainSection);
+            mainSection.appendChild(firstButton);
+            mainSection.appendChild(secondButton);
+            containerResumen.appendChild(resumen);
+            peliculaContainer.appendChild(peliculaMini);
+            // cada div pelicula grande para asignarle width100.
+            const peliculaDiv = document.createElement("div");
+            peliculaDiv.className = "width-100";
+            peliculaDiv.appendChild(peliculaContainer);
+
+            // el return me devuelve una pelicula creada(width100nombrediv)
+            return peliculaDiv;
+        }
+
+        // Función para renderizar la información de la película
+        async function renderMovieTicket() {
+            const pagTicket = document.getElementById("main-tickets");
+
+            if (pagTicket) {
+                pagTicket.innerHTML = ""; // Limpiar el contenido antes de añadir nuevos elementos
+
+                const movieId = getIDMovie();
+                if (!movieId) {
+                    console.error("No se encontró ninguna película guardada en localStorage.");
+                    return;
+                }
+
+                // Obtener los datos de la película utilizando el ID
+                const movieData = await fetchMovieId(movieId);
+
+                // Crear el poster principal de la película 
+                const peliculaPrincipal = document.createElement("div");
+                peliculaPrincipal.className = "principal";
+                peliculaPrincipal.id = "pagterror";
+
+                const contenedorPrincipal = document.createElement("div");
+                contenedorPrincipal.className = "contenedor";
+
+                const tituloPrincipal = document.createElement("h1");
+                tituloPrincipal.className = "titulo";
+                tituloPrincipal.textContent = movieData.title;
+
+                const descripcionPrincipal = document.createElement("h3");
+                descripcionPrincipal.textContent = movieData.overview;
+
+                const botonesPrincipal = document.createElement("div");
+                botonesPrincipal.className = "botones";
+
+                const botonEntradas = document.createElement("button");
+                botonEntradas.className = "boton";
+                botonEntradas.innerHTML = '<i class="fa-solid fa-ticket"></i>¡Compra ya tus entradas!';
+
+                const botonInfo = document.createElement("button");
+                botonInfo.className = "boton";
+                botonInfo.innerHTML = '<i class="fas fa-info-circle"></i>Más información';
+
+                botonesPrincipal.appendChild(botonEntradas);
+                // botonesPrincipal.appendChild(botonInfo);
+                contenedorPrincipal.appendChild(tituloPrincipal);
+                contenedorPrincipal.appendChild(descripcionPrincipal);
+                contenedorPrincipal.appendChild(botonesPrincipal);
+                peliculaPrincipal.appendChild(contenedorPrincipal);
+                pagTicket.appendChild(peliculaPrincipal);
+
+                peliculaPrincipal.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movieData.backdrop_path}')`;
+
+                const tituloMasVistos = document.createElement("div");
+                tituloMasVistos.className = "titulo";
+                const h1MasVistos = document.createElement("h1");
+                h1MasVistos.textContent = "¡ Tickets para tus mejores películas !";
+                tituloMasVistos.appendChild(h1MasVistos);
+                pagTicket.appendChild(tituloMasVistos);
+
+
+
+
+                pagTicket.insertAdjacentHTML('beforeend', `
+                <div class="contendor">
+            <div class="titulo-dias">
+
+                <h2>
+                    <span class="tachado">Lunes Martes Miércoles Jueves Viernes </span>
+                    <span class="no-tachado">Sábado Domingo</span>
+                </h2>
+
+            </div>
+            <div class="contenedor-dia">
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Sábado 21 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Sábado 28 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Sábado 04 Noviembre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Elegir otra fecha</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegir / No Elegir</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="titulo-dias">
+
+                <h2>
+                    Películas para el Domingo <i class="fa-solid fa-film"></i>
+                </h2>
+
+            </div>
+            <div class="contenedor-dia">
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Domingo 22 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegida / No Elegida</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Domingo 29 Octubre</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegida / No Elegida</p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3> Domingo 05 Nov</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegida / No Elegida </p>
+                    </div>
+                </div>
+                <div class="cuadrado">
+                    <div class="mini-titulo">
+                        <h3>Otros Domingos</h3>
+                    </div>
+                    <div class="texto-centrado">
+                        <br>
+                        <p> Elegidas </p>
+                    </div>
+                </div>
+            </div>
+            <div class="titulo-dias">
+                <h2>
+                    Posters "${movieData.title}"
+                </h2>
+            </div>
+            <div>
+                <div class="imagen-final-poster">
+                    <img class="imagen" src="https://image.tmdb.org/t/p/original${movieData.backdrop_path}" alt="Imagen final${movieData.title}" title="${movieData.title}">
+                </div>
+            </div>
+        </div>`);
+
+
+                
+
+                pagTicket.insertAdjacentHTML('beforeend', ` 
+                  <div class="titulo centrado">
+                       <h1> ¡ Disfruta las mejores salas! </h1>
+                  </div>
+                  <div class="imagen-salascine">
+                      <img src="img/salascine.png" alt="Imagen Socios" title="Cine Usurbil">
+                  </div>
+                </div>`);
+            }
+        }
+
+        // Llamar a la función para renderizar la información de la película al cargar la página
+        renderMovieTicket();
+
+    </script>
+
+</body>
+
+</html>

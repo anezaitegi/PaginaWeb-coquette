@@ -10,9 +10,10 @@
         rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <!-- JS-->
+    <script src="peliculas.js"></script>
     <!--<script src="peliculas.js"></script> -->
     <!-- pagina que use para agregar iconos a nuestra pagina web -->
-    <title>Cine Usurbil|Películas</title>
+    <title>Cine Usurbil|Estrenos</title>
 </head>
 
 <body>
@@ -29,34 +30,34 @@
 
             <nav>
                 <div class="menu-item">
-                    <a href="./index.html" target="" class="activo">Estrenos</a>
+                    <a href="./index.html"  class="activo">Estrenos</a>
                 </div>
                 <div class="menu-item">
                     <input type="checkbox" id="genero-grande">
                     <label for="genero-grande" class="bot-genero">Películas</label>
                     <div class="dropdown-genero">
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
+                            <a href="#main-estrenos"  onclick="filterByGenre(27)">Terror (Horror)</a>
                         </div>
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(18)">Drama</a>
+                            <a href="peliculas.html" onclick="filterByGenre(18)">Drama</a>
                         </div>
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(35)">Comedia</a>
+                            <a href="peliculas.html" onclick="filterByGenre(35)">Comedia</a>
                         </div>
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
+                            <a href="peliculas.html" onclick="filterByGenre(878)">Sci - Fi</a>
                         </div>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a href="./cines.html" target="">Cines</a>
+                    <a href="./cines.html" >Cines</a>
                 </div>
                 <div class="menu-item">
-                    <a href="./pagtickets.html" target="">Tickets</a>
+                    <a href="./pagtickets.html" >Tickets</a>
                 </div>
                 <div class="menu-item">
-                    <a href="./index.html" target="">Iniciar sesión</a>
+                    <a href="./index.html" >Iniciar sesión</a>
                 </div>
             </nav>
         </div>
@@ -73,7 +74,7 @@
                 <label for="menu" class="bot-submenu"> ☰ </label>
                 <div class="dropdown-menu">
                     <div class="menu-item">
-                        <a href="./index.html" target="" class="activo">Estrenos</a>
+                        <a href="./index.html"  class="activo">Estrenos</a>
                     </div>
                     <div class="menu-item">
                         <span>Películas</span>
@@ -81,27 +82,27 @@
                         <label for="genero" class="bot-genero"> ▼ </label>
                         <div class="dropdown-genero">
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
+                                <a  onclick="filterByGenre(27)">Terror (Horror)</a>
                             </div>
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(18)">Drama</a>
+                                <a  onclick="filterByGenre(18)">Drama</a>
                             </div>
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(35)">Comedia</a>
+                                <a  onclick="filterByGenre(35)">Comedia</a>
                             </div>
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
+                                <a  onclick="filterByGenre(878)">Sci - Fi</a>
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <a href="./cines.html" target="">Cines</a>
+                        <a href="./cines.html" >Cines</a>
                     </div>
                     <div class="menu-item">
-                        <a href="./pagtickets.html" target="">Tickets</a>
+                        <a href="./pagtickets.html" >Tickets</a>
                     </div>
                     <div class="menu-item">
-                        <a href="./index.html" target="">Iniciar sesión</a>
+                        <a href="./index.html" >Iniciar sesión</a>
                     </div>
                 </div>
             </nav>
@@ -109,252 +110,7 @@
     </header>
 
     <main id="main-estrenos">
-        <script>
-            async function fetchPopularMovies() {
-                const url = 'https://api.themoviedb.org/3/movie/popular?language=es-ES&page=1';
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
-                    }
-                };
 
-                try {
-                    const response = await fetch(url, options);
-                    const data = await response.json();
-                    console.log(data);
-
-
-                    createIndex(data.results);
-                    
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-            }
-            // filtrar peliculas por genero, pasar parametro genero-id
-            async function filterByGenre(genre_id) {
-                const url = `https://api.themoviedb.org/3/discover/movie?language=es-ES&with_genres=${genre_id}&sort_by=popularity.desc`;
-                const options = {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
-                    }
-                };
-
-                try {
-                    const response = await fetch(url, options);
-                    const data = await response.json();
-                    console.log(data);
-
-                    /*: filtra las películas según si el genre_id especificado está incluido en el array genre_ids de cada película.
-                     El resultado se almacena en la variable filteredMovies
-                     includes es una funcion/libreria de JS e igual FILTER/filtrar.*/
-                    const filteredMovies = data.results.filter(movie => movie.genre_ids.includes(genre_id));
-
-                    const backgroundImageUrl = data.backdrop_path;
-
-
-                    // filtrar,(retornar la copia de un arreglo desde el indice del inicio hasta el penúltimo final, excluyendo el final)
-                    // esta filtrando cuando se elige el género en el menú y se filtra por consola
-                    console.log(filteredMovies.slice(0, 10));
-                    fecthGenrerMovies(filteredMovies, genre_id);
-                    console.log("obtuve las peliculas de genero: ");
-
-                } catch (error) {
-                    console.error('Error:', error);
-                }
-            }
-
-            function fecthGenrerMovies(movies, genero) {
-
-                const imagengrid = document.getElementById("main-estrenos");
-                const containerPelis = document.createElement("div");
-                containerPelis.className = "width-100 contenedor";
-
-                const tituloGenero = document.createElement("div");
-                tituloGenero.className = "titulo";
-                const h1titulogenero = document.createElement("h1");
-                h1titulogenero.textContent = "Los más vistos en: " + getGenreByID(genero);
-                tituloGenero.appendChild(h1titulogenero);
-                imagengrid.appendChild(tituloGenero);
-
-                movies.slice(0, 4).forEach(movie => {
-                    createCARD(movie, containerPelis);
-                    console.log("agregadas peliculas genero x:");
-
-                })
-                imagengrid.appendChild(containerPelis);
-
-            }
-
-            // funcion diccionario para saber cuales son los generos usando los id de la api
-            function getGenreByID(id) {
-                // Diccionarrio (en js):
-                // Llave: valor
-                const genres = {
-                    28: "Acción",
-                    12: "Aventura",
-                    16: "Animación",
-                    35: "Comedia",
-                    80: "Crimen",
-                    99: "Documental",
-                    18: "Drama",
-                    10751: "Familia",
-                    14: "Fantasía",
-                    36: "Historia",
-                    27: "Terror",
-                    10402: "Música",
-                    9648: "Misterio",
-                    10749: "Romance",
-                    878: "Ciencia Ficción",
-                    10770: "Película de TV",
-                    53: "Thriller",
-                    10752: "Guerra",
-                    37: "Western"
-
-                };
-
-                return genres[id]; // le doy un id como llave y me da un genero como valor
-
-            }
-
-            // funcion crear tarjetas
-            function createCARD(movie, containerPelis) {
-
-                // Poner peliculas por genero:
-
-                // 1.Obtener arreglo de peliculas del Genero Horror
-                // 2.Poner titulo: Lo más visto en horror
-                // 3.Hacer un foreach que ponga una tarjeta por cada pelicula 
-
-                // Repetir para los demás generos
-
-                // carta individual 
-
-                const card = document.createElement("div");
-                card.className = "carta";
-
-                const cardImg = document.createElement("img");
-                cardImg.src = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
-                cardImg.alt = `Carátula de la película ${movie.title}`;
-                card.appendChild(cardImg);
-
-                const description = document.createElement("div");
-                description.className = "descripcion";
-                description.innerHTML = `<h3>${movie.title}</h3><br><p>Género: ${getGenreByID(movie.genre_ids[0])}</p>`;
-                card.appendChild(description);
-
-                containerPelis.appendChild(card);
-        
-            }
-
-
-            //funcion crear el index
-           async function createIndex(movies) {
-                const imagengrid = document.getElementById("main-estrenos");
-                console.log(imagengrid);
-                imagengrid.innerHTML = "";
-
-                const peliculaPrincipal = document.createElement("div");
-                peliculaPrincipal.className = "principal";
-                peliculaPrincipal.id = "pagterror";// mantendre el id (ver si lo uso)
-
-                const contenedorPrincipal = document.createElement("div");
-                contenedorPrincipal.className = "contenedor";
-
-                const tituloPrincipal = document.createElement("h1");
-                tituloPrincipal.className = "titulo";
-                tituloPrincipal.innerText = movies[0].title;// solo ocupare la primera posicion de la lista (pelicula)
-                //tituloPrincipal.style.color = "black";
-
-                const descripcionPrincipal = document.createElement("h3");
-                descripcionPrincipal.innerHTML = movies[0].overview;// solo ocupare la primera posicion de la descripcion
-                
-
-
-                // crear los botones que van dentro( sin funcionalidad)
-                const botonesPrincipal = document.createElement("div");
-                botonesPrincipal.className = "botones";
-
-                // con innerTEXT no me agregaba los iconos sino el codigo. tuve que utilizar innerHTML.
-                // --> https://www.freecodecamp.org/news/innerhtml-vs-innertext-vs-textcontent/
-
-                contenedorPrincipal.appendChild(tituloPrincipal);
-                contenedorPrincipal.appendChild(descripcionPrincipal);
-                peliculaPrincipal.appendChild(contenedorPrincipal);
-                imagengrid.appendChild(peliculaPrincipal);
-
-                // para manejar el CSS desde el JS se le ponge.style.
-                peliculaPrincipal.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movies[0].backdrop_path}')`;
-
-                // el titulo de cada pagina( me falta poder asignarle el genero. solo si puedo sino no )
-                const tituloMasVistos = document.createElement("div");
-                tituloMasVistos.className = "titulo";
-                const h1MasVistos = document.createElement("h1");
-                h1MasVistos.textContent = " ! Próximos estrenos !";
-                tituloMasVistos.appendChild(h1MasVistos);
-                imagengrid.appendChild(tituloMasVistos);
-
-
-                // aqui empieza el grid
-                const container_grid = document.createElement("div");
-                container_grid.className = "container-img";
-
-                movies.slice(0, 7).forEach(imagen => {
-
-                    // controlar que la imagen sea del porte?
-                    const boxImg = document.createElement("div");
-                    boxImg.className = "box-img";
-                    const figure1 = document.createElement("figure");
-                    figure1.className = "width-100";
-                    const img = document.createElement("img");
-                    img.className = "width-100";
-                    img.src = `https://image.tmdb.org/t/p/original${imagen.backdrop_path}`; // como ejemplo.
-                    img.alt = `Carátula de la película ${imagen.title}`;
-
-                    figure1.appendChild(img);
-                    boxImg.appendChild(figure1);
-                    container_grid.appendChild(boxImg);
-                    // ver si realmente me funciona asi 
-                });
-
-                // aqui podria hacer un for que me inserte cada pelicula CARTA. como en html
-                imagengrid.appendChild(container_grid);
-               
-                await Promise.all([
-                    filterByGenre(27),
-                    filterByGenre(18),
-                    filterByGenre(35),
-                    filterByGenre(878)
-                ]);
-
-                console.log("Tarjetas de películas agregadas al DOM");
-
-                //default ( funcion para insertar al final del dom el elemento desde js obligatoriamente)
-                imagengrid.insertAdjacentHTML('beforeend', `
-                <div class="apartado3">
-                    <div class="titulo">
-                        <h1>¿ NO ERES PARTE DEL CLUB DE SOCIOS ?</h1>
-                    </div>
-                    <div class="texto">
-                        <h2>¡Únete al Club de Socios Cine Usurbil y Descubre un Mundo de Experiencias Cinematográficas
-                            Exclusivas!</h2>
-                        <h2>En Cine Usurbil, valoramos a nuestros apasionados amantes del cine, y para mostrar nuestro
-                            agradecimiento, hemos creado el Club de Socios Cine Usurbil, un espacio exclusivo dedicado a
-                            brindarte experiencias únicas y beneficios especiales.</h2>
-                    </div>
-                    <div>
-                        <div class="imagen">
-                            <img src="img/postersocios.png" alt="Imagen Socios" title="Cine Usurbil">
-                        </div>
-                    </div>
-                </div>`);
-            }
-
-            document.addEventListener("DOMContentLoaded", fetchPopularMovies);
-        </script>
 
     </main>
 
@@ -395,6 +151,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>

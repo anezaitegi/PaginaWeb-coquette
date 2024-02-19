@@ -10,7 +10,7 @@
         rel="stylesheet"> <!-- fuente que use para el logo y los titulos, extraida desde google font-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <!-- JS-->
-    <script src="peliculas.js"></script>
+    
     <!-- pagina que use para agregar iconos a nuestra pagina web -->
     <title>Cine Usurbil|Películas</title>
 </head>
@@ -117,12 +117,12 @@
                 </div>-->
     </header>
     <main id="main-tickets">
-        <!-- COMO PUEDO HACER QUE SE PASE POR API? ES LA MISMA IMAGEN QUE SE REPITE EN LAS OTRAS PAGINAS.
-            1. Tendria que buscar el id de una pelicula especifica? o depende que pelicula aprete?
-                redireccionar? 
-            POR LO MENOS para el poster principal, luego vuelve a usar la misma estructura de las paginas de peliculas.
-            POR ENDE, tambien se podria usar la api y refactorizar el codigo, pero como lo llamo o al tener ligado el JS lo hace solo?
-            ID PELICULA HANDIA, tt5693136, 'https://api.themoviedb.org/3/find/tt5693136?external_source=', options)-->
+        <!-- 
+                // sacar informacion desde la base de datos, es una opcion, el tema es que handia ya no esta en las mas vistas
+                entonces realmente tendria que pasarlas por api al momento de apretar el click en la foto
+             cambiar el boton de trailer por ver mas? 
+
+            -->
 
         <!-- Aqui parte principal  texto-->
         <div class="principal" id="pagtickets">
@@ -133,7 +133,7 @@
                 </h3>
                 <div class="botones">
                     <button class="boton"><i class="fa-solid fa-ticket"></i>¡Compra ya tus entradas!</button>
-                    <button class="boton"><i class="fas fa-info-circle"></i>Más información</button>
+                    <!--<button class="boton"><i class="fas fa-info-circle"></i>Más información</button> -->
                 </div>
             </div>
 
@@ -359,6 +359,29 @@
             </div>
         </div>
     </footer>
+    <script>
+        async function fetchMovieId(movieId){
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?language=es-ES&page=1`;
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYzgyZDhhODFkYjgzYTNjNDUwNjIxNDkzMzVmNGZjMCIsInN1YiI6IjY1YmI2ODFjZjAzMTc0MDE3YzY3OWQ2NSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Tv7XQu-LlSPMXh1-0uNmH14X0w-L7hZuZVPd4xOsUVk'
+        }
+    };
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        console.log(data);
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+fetchMovieId(550)// funciona  
+
+</script>
 </body>
 
 </html>
