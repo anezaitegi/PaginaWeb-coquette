@@ -29,34 +29,37 @@
 
             <nav>
                 <div class="menu-item">
-                    <a href="./index.html" target="">Estrenos</a>
+                    <a href="./index.html">Estrenos</a>
                 </div>
                 <div class="menu-item">
                     <input type="checkbox" id="genero-grande">
                     <label for="genero-grande" class="bot-genero">Películas</label>
                     <div class="dropdown-genero">
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
+                            <a href="./peliculas.html?genre=27">Terror (Horror)</a>
                         </div>
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(18)">Drama</a>
+                            <a href="./peliculas.html?genre=18">Drama</a>
                         </div>
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(35)">Comedia</a>
+                            <a href="./peliculas.html?genre=35">Comedia</a>
                         </div>
                         <div class="genero-item">
-                            <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
+                            <a href="./peliculas.html?genre=878">Sci-Fi</a>
                         </div>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <a href="./cines.html" target="">Cines</a>
+                    <a href="./cines.html">Cines</a>
                 </div>
                 <div class="menu-item">
-                    <a href="./pagtickets.html" target="" class="activo">Tickets</a>
+                    <a href="./pagtickets.html" class="activo">Tickets</a>
                 </div>
                 <div class="menu-item">
-                    <a href="./index.html" target="">Login || Sign in</a>
+                    <a href="./index.html">Login || Sign in</a>
+                </div>
+                <div class="menu-item">
+                    <label for="buscar" class="bot-buscar"><i class="fa-solid fa-magnifying-glass"></i></label>
                 </div>
             </nav>
         </div>
@@ -73,7 +76,7 @@
                 <label for="menu" class="bot-submenu"> ☰ </label>
                 <div class="dropdown-menu">
                     <div class="menu-item">
-                        <a href="./index.html" target="">Estrenos</a>
+                        <a href="./index.html">Estrenos</a>
                     </div>
                     <div class="menu-item">
                         <span>Películas</span>
@@ -81,40 +84,35 @@
                         <label for="genero" class="bot-genero"> ▼ </label>
                         <div class="dropdown-genero">
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(27)">Terror (Horror)</a>
+                                <a href="./peliculas.html?genre=27">Terror (Horror)</a>
                             </div>
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(18)">Drama</a>
+                                <a href="./peliculas.html?genre=18">Drama</a>
                             </div>
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(35)">Comedia</a>
+                                <a href="./peliculas.html?genre=35">Comedia</a>
                             </div>
                             <div class="genero-item">
-                                <a target="" onclick="filterByGenre(878)">Sci - Fi</a>
+                                <a href="./peliculas.html?genre=878">Sci-Fi</a>
                             </div>
                         </div>
                     </div>
                     <div class="menu-item">
-                        <a href="./cines.html" target="">Cines</a>
+                        <a href="./cines.html">Cines</a>
                     </div>
                     <div class="menu-item">
-                        <a href="./pagtickets.html" target="" class="activo">Tickets</a>
+                        <a href="./pagtickets.html" class="activo">Tickets</a>
                     </div>
                     <div class="menu-item">
-                        <a href="./index.html" target="">Login || Sign in</a>
+                        <a href="./index.html">Iniciar sesión</a>
+                    </div>
+                    <div class="menu-item">
+                        <label for="buscar" class="bot-buscar"><i class="fa-solid fa-magnifying-glass"></i></label>
                     </div>
                 </div>
             </nav>
-        </div> <!--<div class="menu-item">
-                    <a href="./index.html" target="_blank" class="">Tickets</a>
-                </div>
-                <div class="menu-item">
-                    <input type="checkbox" id="buscar">
-                    <label for="buscar" class="bot-buscar"><i class="fa-solid fa-magnifying-glass"></i></label>
-                    <div class="buscar-item">
-                        <input type="text" placeholder="Buscar...">
-                    </div>
-                </div>-->
+        </div>
+                
     </header>
     <main id="main-tickets">
         <!-- 
@@ -243,43 +241,43 @@
             </div>
         </div>
     </main>
-    <!-- aqui comienza el footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-column">
-                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-film"></i>Quiénes somos</a>
-                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-location-dot"></i>Cómo llegar</a>
-                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-circle-info"></i>Atención
-                    al cliente</a>
-                <a href="./pagcineinfo.html" target="_blank"><i class="fa-solid fa-phone"></i> +34 606 060 6060</a>
-            </div>
-            <div class="footer-column">
-                <p><i class="fa-solid fa-address-card"></i> ¿Eres socio?</p>
-                <p>Conoce nuestros beneficios por ser socio del club</p>
-                <p>Cine Usurbil</p>
-                <div class="rrss"> <!-- Iconos del footer -->
-                    <a><i class="fa-brands fa-instagram"></i></a>
-                    <a><i class="fa-brands fa-facebook"></i></a>
-                    <a><i class="fa-brands fa-youtube"></i></a>
-                    <a><i class="fa-brands fa-tiktok"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <a href="#">Aviso legal</a>
-                <a href="#">Política de privacidad</a>
-                <a href="#">Términos y condiciones</a>
-                <a href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
-                    rel="license noopener noreferrer" style="display:inline-block;"><img
-                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
-                        alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
-                        alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"
-                        alt="licencia"></a>
+   <!-- Footer de la página-->
+   <footer>
+    <div class="footer-container">
+        <div class="footer-column">
+            <a href="./cines.html" target="_blank"><i class="fa-solid fa-film"></i>Quiénes somos</a>
+            <a href="./cines.html" target="_blank"><i class="fa-solid fa-location-dot"></i>Cómo llegar</a>
+            <a href="./cines.html" target="_blank"><i class="fa-solid fa-circle-info"></i>Atención
+                al cliente</a>
+            <a href="./cines.html" target="_blank"><i class="fa-solid fa-phone"></i> +34 606 060 6060</a>
+        </div>
+        <div class="footer-column">
+            <p><i class="fa-solid fa-address-card"></i> ¿Eres socio?</p>
+            <p>Conoce nuestros beneficios por ser socio del club</p>
+            <p>Cine Usurbil</p>
+            <div class="rrss"> <!-- Iconos del footer -->
+                <a><i class="fa-brands fa-instagram"></i></a>
+                <a><i class="fa-brands fa-facebook"></i></a>
+                <a><i class="fa-brands fa-youtube"></i></a>
+                <a><i class="fa-brands fa-tiktok"></i></a>
             </div>
         </div>
-    </footer>
+        <div class="footer-column">
+            <a href="#">Aviso legal</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y condiciones</a>
+            <a href="http://creativecommons.org/licenses/by-nd/4.0/?ref=chooser-v1" target="_blank"
+                rel="license noopener noreferrer" style="display:inline-block;"><img
+                    style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+                    alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"
+                    alt="licencia"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                    src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"
+                    alt="licencia"></a>
+        </div>
+    </div>
+</footer>
     <script>
 
         // ERRORES POR ARREGLAR, SOLO CREAR LA INFORMACION DE LA PELICULA createElement();
@@ -299,20 +297,34 @@
                 const data = await response.json();
                 console.log(data);
                 return data; // Devuelve los datos obtenidos de la película
+
+                
             } catch (error) {
                 console.error('Error:', error);
             }
         }
 
-        // guardar el ID de la pelicula en el localStorage
-        function saveMovieId(id) {
-            localStorage.setItem('idPeliculaSeleccionada', id);
-            console.log('ID de la película guardado en localStorage:', id);
+        // funcion obtener id de la url
+        function getMovieIdFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('id');
+        }    
+            // Llama a la función y guarda el resultado en una variable // funciona 
+                const movieId = getMovieIdFromURL();
+
+                // Imprime el resultado en la consola
+                console.log("ID de la película obtenido de la URL:", movieId);
+        
+
+        // // guardar el ID de la pelicula en el localStorage
+        function saveMovieId(movieId) {
+            localStorage.setItem('idPeliculaSeleccionada', movieId);
+            console.log('ID de la película guardado en localStorage:', movieId);
         }
 
         // funcion para obtener el ID de la pelicula desde el localStorage
-        function getIDMovie() {
-            return localStorage.getItem('idPeliculaSeleccionada');
+        function getIDMovie(movieId) {
+            return localStorage.getItem('idPeliculaSeleccionada', movieId);
         }
 
         // funcion crear (contenedores) pelicula(s)
@@ -595,7 +607,7 @@
         }
 
         // Llamar a la función para renderizar la información de la película al cargar la página
-        renderMovieTicket();
+        renderMovieTicket(550);
 
     </script>
 

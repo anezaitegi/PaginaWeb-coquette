@@ -1,25 +1,21 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 $servername = 'localhost';
-$username = 'root';
-$password = 'Sanm1919.';
-$database = 'cinecoquettenodejs2';
-
 // para ingresar al servidor
-// $username = 'test'; // usuario del servidor
-// $password = 'Yta12345678*'; // 
-// $database = 'coquette';
+$username = 'test'; // usuario del servidor
+$password = 'Yta12345678*'; 
+$database = 'coquettecines';
 
 // Crear conexión
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Verificar conexión
-if (!$conn) {
-    die("Conexión fallida: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error());
 }
-
-echo "Conexión exitosa";
 
 // obtener dni y password del usuario desde los parametros
 

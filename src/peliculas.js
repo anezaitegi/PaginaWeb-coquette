@@ -90,9 +90,13 @@ async function fetchMovieId(movieId) {
 }
 
 // guardar el id en el localstorage // idPeliculaSeleccionada es el nombre que le doy a la lista objeto json
+// todavia no se porque me filtra la pelicula orio. no se de donde toma el item.
+
 function saveMovieId(movieId) {
     localStorage.setItem('idPeliculaSeleccionada', movieId);
     console.log('ID de la película guardado en localStorage:', movieId);
+   // usar el window href no me funciona correctamente, quizas me falta mejorar la pagina de ticket para que tome el id en el localstorage
+
 }
 
 // Función para obtener el ID de la película desde el localStorage
@@ -102,6 +106,9 @@ function getIDMovie() {
 
 // filtrar peliculas por genero, pasar parametro genero-id, se llama a la api para tener generos especificos
 async function filterByGenre(genre_id) {
+     // Desplazar hacia arriba cada vez que se aprete el genero.
+     window.scrollTo({ top: 0, behavior: 'smooth' });
+
     const url = `https://api.themoviedb.org/3/discover/movie?language=es-ES&with_genres=${genre_id}&sort_by=popularity.desc`;
     const options = {
         method: 'GET',
@@ -335,10 +342,10 @@ function renderMovies(movies) {
 
         const tituloPrincipal = document.createElement("h1");
         tituloPrincipal.className = "titulo";
-        tituloPrincipal.innerText = movies[0].title;// solo ocupare la primera posicion de la lista (pelicula)
+        tituloPrincipal.innerText = movies[1].title;// solo ocupare la primera posicion de la lista (pelicula)
 
         const descripcionPrincipal = document.createElement("h3");
-        descripcionPrincipal.innerText = movies[0].overview;// solo ocupare la primera posicion de la descripcion
+        descripcionPrincipal.innerText = movies[1].overview;// solo ocupare la primera posicion de la descripcion
 
         // crear los botones que van dentro( sin funcionalidad)
         const botonesPrincipal = document.createElement("div");
@@ -354,9 +361,10 @@ function renderMovies(movies) {
         const botonInfo = document.createElement("button");
         botonInfo.className = "boton";
         botonInfo.innerHTML = '<i class="fas fa-info-circle"></i>Más información';
-        botonInfo.onclick = function() { // me guarda el id de la primera posicion
-            saveMovieId(movies[0]);
-        };
+        botonInfo.onclick = function() {
+            window.location.href = 'tickets.html?id=' + movies[1].id;
+            console.log('tickets.html?id=' + movies[1].id); // me pasa el id por la url pero me tira otra pelicula diferente
+          };
 
         botonesPrincipal.appendChild(botonEntradas);
         botonesPrincipal.appendChild(botonInfo);
@@ -367,13 +375,13 @@ function renderMovies(movies) {
         peliculasContainer.appendChild(peliculaPrincipal);
 
         // para manejar el CSS desde el JS se le ponge.style.
-        peliculaPrincipal.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movies[0].backdrop_path}')`;
+        peliculaPrincipal.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movies[1].backdrop_path}')`;
 
         // el titulo de cada pagina( me falta poder asignarle el genero. solo si puedo sino no )
         const tituloMasVistos = document.createElement("div");
         tituloMasVistos.className = "titulo";
         const h1MasVistos = document.createElement("h1");
-        h1MasVistos.textContent = "Los más vistos";
+        h1MasVistos.textContent = "¡ Disfruta de nuestra cartelera !";
         tituloMasVistos.appendChild(h1MasVistos);
         peliculasContainer.appendChild(tituloMasVistos);
 
@@ -394,9 +402,6 @@ function renderMovies(movies) {
 // que al hacer click tome el id y me redirija a otro html y me guarde ese id en el localstorage
 // podre usar la mismo funcion de arriba que guarda las id ?
 
-// function getonclickMovieID(){
-//     const 
-// }
 
 ////// pagina index ////////////////
 
@@ -643,8 +648,58 @@ async function renderIndex(movies) {
 //     }
 // }
 
+
+///////funciones para la barra del navegador/////////
+//////// esto fue lo que mas me costo encontrar infomacion, al final tuve que usar foros externos para poder entender algo.
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchPopularMovies();
     renderGenrerMovies();
     currentPage();
+
+    // seleccionamos todos los selectores que tengan 
+    const menuItems = document.querySelectorAll('.menu-item a');
+
+    // hacemos un foreach donde le agregamos evento listener a cada uno de ellos.
+    menuItems.forEach(item => {
+        item.addEventListener('click', menuItemClick);
+    });
+
+    // esta dentro para asegurarse que se ejecute despues de tener cargador los archivos del doom
+    filterGenrepage();
 });
+
+function menuItemClick(event) {
+    const genreId = parseInt(event.currentTarget.dataset.genre);
+    if (isValidGenreId(genreId)) {
+        filterByGenre(genreId);
+    } else {
+        redirectToPage(event.currentTarget.href);
+    }
+}
+
+// id sea valido
+function isValidGenreId(genreId) {
+    return genreId !== null && genreId !== undefined && !isNaN(genreId);
+}
+
+// redirigir a la url
+function redirectToPage(url) {
+    window.location.href = url;
+}
+
+// maneja el filtrado por genero, leyemos la url para saber si tiene un genero y si en el caso que tenga
+// se filtra el genero y asi mismo se crea la pagina o redirige a la pagina segun el genero.
+
+function filterGenrepage() {
+    // urlsearchparams permite acceder a los parametros de la url y tomar lo que necesitemos o todo.
+    const urlParams = new URLSearchParams(window.location.search);
+    // usa un get para tomar un valor especifico (genero)
+    const genreParam = urlParams.get('genre');
+    // si el id genero es valido
+    if (isValidGenreId(genreParam)) {
+        // lo pasamos a un int y lo filtramos por el genero.
+        filterByGenre(parseInt(genreParam));
+    }
+}
+
