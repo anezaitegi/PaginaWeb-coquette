@@ -640,7 +640,7 @@ footer .footer-container .footer-column {
 
 @media (min-width:901px) {
 
-    /* La secciones que se van a visualizar segun ancho de pantalla */
+    /* La secciones que se van a visualizar segun ancho de pantalla. */
     .container-grande {
         display: block;
     }

@@ -580,7 +580,7 @@ function menuItemClick(event) {
 
 // id sea valido
 function isValidGenreId(genreId) {
-    // La función devuelve true si el valor no es un número (NaN), de lo contrario, devuelve false
+    // La función devuelve true si el valor no es un número (NaN), de lo contrario, devuelve false.
     // primero se verifica que genreid no sea nulo y que no sea undefined y luego devuelve true si el genreid es un numero.
     return genreId !== null && genreId !== undefined && !isNaN(genreId);
 }
