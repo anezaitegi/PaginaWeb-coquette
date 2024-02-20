@@ -20,12 +20,12 @@ if ($conn->connect_error) {
 // obtener dni y password del usuario desde los parametros
 
 $dni = $_GET['dni'];
-$password = $_GET['password'];
+$encryptedPassword = $_GET['password'];
 
 // preparar la consulta en mysql
 
 $stmt = $conn->prepare("SELECT * FROM cliente WHERE DNI = ? AND Password = ?");
-$stmt->bind_param("ss", $dni, $password);
+$stmt->bind_param("ss", $dni, $encryptedPassword);
 
 // ejecutar la consulta en mysql
 

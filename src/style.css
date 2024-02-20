@@ -539,16 +539,17 @@ footer .footer-container .footer-column {
     align-items: center;
     justify-content: center;
     min-height: 10vh;
-    min-width: 80vh;
+    width: 100%;
 }
 
 #container-login {
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: #5c0427;
     text-align: center;
     padding: 20px 25px;
     box-shadow: 0 5px 10px rgba(71, 3, 6, 0.7);
+
 }
 
 #container-login .tittle {
@@ -595,6 +596,13 @@ footer .footer-container .footer-column {
     font-size: 20px;
 }
 
+.login-cuadro{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
 /*pag login logeado*/
 
 #login-success{
@@ -605,7 +613,19 @@ footer .footer-container .footer-column {
     background-color: #c45fe976;
     min-height: 90vh;
     min-width: 80%;
-    
+    background: linear-gradient(rgba(110, 68, 68, 0.171) 0%, rgba(64, 44, 44, 0.555) 100%), url('img/logopopcorn.com.png'); 
+}
+#bienvenidocuadro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #f2d2ae;
+    padding: 15px;
+}
+#bienvenidocuadro h2 {
+    color: #220c23;
 }
 /* Pagina de inicio de sesión logeado */
 
@@ -865,6 +885,7 @@ footer .footer-container .footer-column {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
+        width: 96%;
 
     }
 
@@ -1269,6 +1290,7 @@ footer .footer-container .footer-column {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
+        width: 94%
 
     }
 
@@ -1431,7 +1453,7 @@ footer .footer-container .footer-column {
         align-items: center;
         justify-content: center;
         min-height: 100vh;
-
+        width: 92%
     }
 
     #container-login .form-login {

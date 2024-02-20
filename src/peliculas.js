@@ -1,40 +1,26 @@
-/*  1.- Primer paso crear muchas funciones.(en proceso)
+/*  1.- Primer paso crear muchas funciones.(siempre en proceso)
     2.- Luego intentar leer toda la informacion desde el API de peliculas (listo)
-    3.- Intentar usar solo un js (falta)
-    4.- Una vez que tenga todas las peliculas con la informacion sacada desde la API o parseo de json 
-    realizar detalles con js, como botones, animaciones o etc. ( a medias)
-    5.- Tambien arreglar detalles como arreglar el menu de movil que funciona pero se repite codigo. (falta)
-    6.- Ver sino tambien se puede tomar el mismo codigo en todas las paginas de html que se repiten como en el header/footer. ( no se si lo hare)
+    3.- Intentar usar solo un js (listo, menos tickets)
+    4.- Una vez que tenga todas las peliculas con la informacion sacada desde la API o parseo de json  (listo)
+    4.5.- realizar detalles con js, como botones, animaciones o etc. (los botones comprar redirigen a la pelicula/tickets)
+    5.- Tambien arreglar detalles como arreglar el menu de movil que funciona pero se repite codigo. (FALTA)
+    6.- Ver sino tambien se puede tomar el mismo codigo en todas las paginas de html que se repiten como en el header/footer. (no se hizo)
     7.- Al intentar cambiar todas las peliculas de las paginas en una sola pagina PELICULAS--> tendria que cambiar la pelicula principal 
-    en el CSS, o dejo una sola. COMO UNA PORTADA. (REalizado)
-    8.- Falta hacer que las paginas html esten relacionadas con el boton ( quizas no usa un onclick o quizas deba usar un solo js para que lo tome?)
+    en el CSS, o dejo una sola. COMO UNA PORTADA. (logrado de otra manera)
+    8.- Falta hacer que las paginas html esten relacionadas con el boton ( listo)
     9.- Me falta filtrar los titulos por generos ${genero: generogetid()}(por ejemplo)(listo)
     10.- arreglar los links de youtube, ver si los dejo o no,(listo)
     11.- ver si la api me pasa peliculas espeicificas para usar en el grid o en la lista de peliculas de màs abajo (listo)
-    12.- hacer que la pagina web traiga informacion desde la base de datos (falta)
-    13.- Podria hacer otra pagina de estrenos. hare una pagina de login tamnbien( pagina mejorada de estrenos)
-    14.- hacer el login con conexion a bbdd y la direccion de los cines. ( me falta hacer bien la pagina logeado)
+    12.- hacer que la pagina web traiga informacion desde la base de datos (listo login)
+    13.- Podria hacer otra pagina de estrenos. hare una pagina de login tamnbien(pagina mejorada de estrenos)
+    14.- hacer el login con conexion a bbdd y la direccion de los cines. ( listo)
     15.- realizar el unico js y ver que funciones me funcionan y porque no me funciona ( me funciona con index y peliculas.html)
-    16.- los botones de compra obtienen el id al hacer click. AHORA necesito hacer que me redijan a otro html y creen la informacion desde ahi 
-            tendria que hacer todo en este js pero uhhhhhhh me complico la vida sola.
-
+    16.- los botones de compra obtienen el id al hacer click. AHORA necesito hacer que me redijan a otro html y creen la informacion desde ahi(listo)
+    17.- me falta solo la pagina de tickets y ya estaria listo. (listo)
 
 
     GENERO ID DE TMBD: https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee
     */
-
-// intento de hacer fetch await con el TMDB.( la pagina no lo trae pero a ver si funciona.)
-// funciona super bien la API DE TMBD. EN ESPAÑOL, podria pasar toda la pagina web usando api
-// GENEROS ID TMBD: https://www.themoviedb.org/talk/5daf6eb0ae36680011d7e6ee
-// EL TEMA ES QUE SON LAS PELICULAS POPULARES---> me sirve para proximos estrenos.
-// necesito ver como sacar las imagenes porque estan en un jpg pero no se de donde los sacaran
-// ya encontre la solucion, https://www.themoviedb.org/talk/5aeaaf56c3a3682ddf0010de
-// esta seria la ruta entera: https://image.tmdb.org/t/p/original/pWsD91G2R1Da3AKM3ymr3UoIfRb.jpg
-// esta seria la ruta sola sin https://image.tmdb.org/t/p/original(supongo que va cambiando la id o cosas asi en la informacion o la ruta o etc?) supongo que yo me entiendo.
-
-
-
-
 
 // peliculas llamada a las peliculas populares del api
 async function fetchPopularMovies() {
@@ -54,7 +40,7 @@ async function fetchPopularMovies() {
 
         currentPage(data);
 
-        // Guardar los IDs de todas las películas en el localStorage
+        // guardar los id de las peliculas en localstorage
         if (data && data.results && data.results.length > 0) {
             for (let i = 0; i < data.results.length; i++) {
                 saveMovieId(data.results[i].id);
@@ -68,9 +54,8 @@ async function fetchPopularMovies() {
 }
 
 // llamada a las peliculas por id a la api, //la llamada funciona//
-
 async function fetchMovieId(movieId) {
-    const url = `https://api.themoviedb.org/3/movie/${movieId}?language=es-ES&page=1`;
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?append_to_response=casts&language=es-ES&page=1`;
     const options = {
         method: 'GET',
         headers: {
@@ -91,7 +76,6 @@ async function fetchMovieId(movieId) {
 
 // guardar el id en el localstorage // idPeliculaSeleccionada es el nombre que le doy a la lista objeto json
 // todavia no se porque me filtra la pelicula orio. no se de donde toma el item.
-
 function saveMovieId(movieId) {
     localStorage.setItem('idPeliculaSeleccionada', movieId);
     console.log('ID de la película guardado en localStorage:', movieId);
@@ -99,14 +83,14 @@ function saveMovieId(movieId) {
 
 }
 
-// Función para obtener el ID de la película desde el localStorage
+// obtener el id del localstorage
 function getIDMovie() {
     return localStorage.getItem('idPeliculaSeleccionada');
 }
 
 // filtrar peliculas por genero, pasar parametro genero-id, se llama a la api para tener generos especificos
 async function filterByGenre(genre_id) {
-     // Desplazar hacia arriba cada vez que se aprete el genero.
+     // Desplazar hacia arriba cada vez que se aprete el genero (al final no lo usé porque cambie el codigo)
      window.scrollTo({ top: 0, behavior: 'smooth' });
 
     const url = `https://api.themoviedb.org/3/discover/movie?language=es-ES&with_genres=${genre_id}&sort_by=popularity.desc`;
@@ -127,9 +111,6 @@ async function filterByGenre(genre_id) {
          El resultado se almacena en la variable filteredMovies
          includes es una funcion/libreria de JS e igual FILTER/filtrar.*/
         const filteredMovies = data.results.filter(movie => movie.genre_ids.includes(genre_id));
-
-        //const backgroundImageUrl = data.backdrop_path;
-
 
         // filtrar,(retornar la copia de un arreglo desde el indice del inicio hasta el penúltimo final, excluyendo el final)
         // esta filtrando cuando se elige el género en el menú y se filtra por consola
@@ -175,8 +156,7 @@ async function currentPage(data) {
         indexPage(data);
     } else if (path === "/src/peliculas.html" || path === "/peliculas.html") {
         peliculasPage(data);
-    } 
-
+    }
 }
 // funcion diccionario para saber cuales son los generos usando los id de la api
 function getGenreByID(id) {
@@ -205,8 +185,8 @@ function getGenreByID(id) {
     };
 
     return genres[id]; // le doy un id como llave y me da un genero como valor
-
 }
+
 // funcion para adultos o no
 function getClasification(isAdult) {
     if (isAdult) {
@@ -291,9 +271,11 @@ function createMovieElement(movie) {
     const secondButton = document.createElement("button");
     secondButton.className = "second-button";
     secondButton.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" stroke="#ffd300" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Compra Ahora!`;
-    secondButton.onclick = function() {  
-        saveMovieId(movie);  // me funciona obtener el id por localstorage con el boton
-    };
+    secondButton.onclick = function() {
+            window.location.href = 'tickets.html?id=' + movie.id;
+            console.log('tickets.html?id=' + movie[1].id); // me pasa el id por la url pero me tira otra pelicula diferente
+          };
+
     // contenedor de caratula y boton de trailer
     const caratulaDiv = document.createElement("div");
     caratulaDiv.appendChild(caratula);
@@ -320,6 +302,7 @@ function createMovieElement(movie) {
 /* tengo que vaciar el contenido despues de llamar al div main, crear los elementos
 dejarlos fuera del for, asi el for no itera.
 */
+
 // funcion mostrar/renderizar los elementos en la pagina
 function renderMovies(movies) {
     // tomo mi main
@@ -363,7 +346,7 @@ function renderMovies(movies) {
         botonInfo.innerHTML = '<i class="fas fa-info-circle"></i>Más información';
         botonInfo.onclick = function() {
             window.location.href = 'tickets.html?id=' + movies[1].id;
-            console.log('tickets.html?id=' + movies[1].id); // me pasa el id por la url pero me tira otra pelicula diferente
+            console.log('tickets.html?id=' + movies[1].id); 
           };
 
         botonesPrincipal.appendChild(botonEntradas);
@@ -406,7 +389,6 @@ function renderMovies(movies) {
 ////// pagina index ////////////////
 
 // mostrar peliculas por un genero especifico, se llama a la funcion crear 4 y se crean 4 cartas por genero (0-4 posiciones array)
-
 function renderGenrerMovies(movies, genero) {
     const imagengrid = document.getElementById("main-estrenos");
 
@@ -417,7 +399,7 @@ function renderGenrerMovies(movies, genero) {
         const tituloGenero = document.createElement("div");
         tituloGenero.className = "titulo";
         const h1titulogenero = document.createElement("h1");
-        h1titulogenero.textContent = "Los más vistos en: " + getGenreByID(genero);
+        h1titulogenero.textContent = "Los más vistos en " + getGenreByID(genero);
         tituloGenero.appendChild(h1titulogenero);
         imagengrid.appendChild(tituloGenero);
 
@@ -456,6 +438,10 @@ function createCARD(movie, containerPelis) {
     description.className = "descripcion";
     description.innerHTML = `<h3>${movie.title}</h3><br><p>Género: ${getGenreByID(movie.genre_ids[0])}</p>`;
     card.appendChild(description);
+    // agregar onclick a las cartas
+    card.onclick = function() {
+        window.location.href = 'tickets.html?id=' + movie.id;
+    };
 
     containerPelis.appendChild(card);
 
@@ -561,93 +547,6 @@ async function renderIndex(movies) {
             </div>`);
 }
 
-// funcion que crea renderiza pag tickets
-
-// function renderMovieTicket(movie) {
-//     const pagTicket = document.getElementById("main-tickets");
-
-//     if (pagTicket) {
-//         pagTicket.innerHTML = ""; // quiza tenga que borrarlo
-
-
-//         const movieId = getIDMovie();
-//         if (!movieId) {
-//             console.error("No se encontró ninguna película guardada en localStorage.");
-//             return;
-//         }
-
-//         // Obtener los datos de la película utilizando el ID
-//         const movieData = fetchMovieId(movieId);
-
-//         // crear el poster principal de la pelicula 
-//         // queria tomar los elementos del html pero creo que se me hace más dificil de esa manera 
-//         // que crearlos directamente con el js ( quizas es mala practica no lo se)
-
-//         const peliculaPrincipal = document.createElement("div");
-//         peliculaPrincipal.className = "principal";
-//         peliculaPrincipal.id = "pagterror";// mantendre el id (ver si lo uso)
-
-//         const contenedorPrincipal = document.createElement("div");
-//         contenedorPrincipal.className = "contenedor";
-
-//         const tituloPrincipal = document.createElement("h1");
-//         tituloPrincipal.className = "titulo";
-//         tituloPrincipal.innerText = movie.title;// solo ocupare la primera posicion de la lista (pelicula)
-
-//         const descripcionPrincipal = document.createElement("h3");
-//         descripcionPrincipal.innerText = movie.overview;// solo ocupare la primera posicion de la descripcion
-
-//         // crear los botones que van dentro( sin funcionalidad)
-//         const botonesPrincipal = document.createElement("div");
-//         botonesPrincipal.className = "botones";
-
-//         // con innerTEXT no me agregaba los iconos sino el codigo. tuve que utilizar innerHTML.
-//         // --> https://www.freecodecamp.org/news/innerhtml-vs-innertext-vs-textcontent/
-
-//         const botonEntradas = document.createElement("button");
-//         botonEntradas.className = "boton";
-//         botonEntradas.innerHTML = '<i class="fa-solid fa-ticket"></i>¡Compra ya tus entradas!';
-
-//         const botonInfo = document.createElement("button");
-//         botonInfo.className = "boton";
-//         botonInfo.innerHTML = '<i class="fas fa-info-circle"></i>Más información';
-
-//         botonesPrincipal.appendChild(botonEntradas);
-//         botonesPrincipal.appendChild(botonInfo);
-//         contenedorPrincipal.appendChild(tituloPrincipal);
-//         contenedorPrincipal.appendChild(descripcionPrincipal);
-//         contenedorPrincipal.appendChild(botonesPrincipal);
-//         peliculaPrincipal.appendChild(contenedorPrincipal);
-//         pagTicket.appendChild(peliculaPrincipal);
-
-//         // para manejar el CSS desde el JS se le ponge.style.
-//         peliculaPrincipal.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
-
-//         // el titulo de cada pagina( me falta poder asignarle el genero. solo si puedo sino no )
-//         const tituloMasVistos = document.createElement("div");
-//         tituloMasVistos.className = "titulo";
-//         const h1MasVistos = document.createElement("h1");
-//         h1MasVistos.textContent = "¡ Tickets para tus mejores peliculas !";
-//         tituloMasVistos.appendChild(h1MasVistos);
-//         pagTicket.appendChild(tituloMasVistos);
-
-
-
-//           // Crear el elemento de la película utilizando la función createMovieElement
-//           const movieElement = createMovieElement(movieData.results);
-
-//           // Añadir el elemento al contenedor principal
-//           pagTicket.appendChild(movieElement);
-
-//           pagTicket.insertAdjacentHTML('beforeend', ` <div>
-//           <div class="imagen-salascine">
-//               <img src="img/salascine.png" alt="Imagen Socios" title="Cine Usurbil">
-//           </div>
-//       </div>`);
-
-//     }
-// }
-
 
 ///////funciones para la barra del navegador/////////
 //////// esto fue lo que mas me costo encontrar infomacion, al final tuve que usar foros externos para poder entender algo.
@@ -657,18 +556,19 @@ document.addEventListener("DOMContentLoaded", () => {
     renderGenrerMovies();
     currentPage();
 
-    // seleccionamos todos los selectores que tengan 
+    // seleccionamos todos los selectores que tengan la clase menu item y sean a
     const menuItems = document.querySelectorAll('.menu-item a');
 
-    // hacemos un foreach donde le agregamos evento listener a cada uno de ellos.
+    // hacemos un foreach donde le agregamos evento listener a cada uno de ellos
     menuItems.forEach(item => {
         item.addEventListener('click', menuItemClick);
     });
 
-    // esta dentro para asegurarse que se ejecute despues de tener cargador los archivos del doom
+    // esta dentro del doomcontentloaded para asegurarse que se ejecute despues de tener cargado los archivos del doom
     filterGenrepage();
 });
 
+// le agrega el evento al menu y luego redirecciona con la funcion al html
 function menuItemClick(event) {
     const genreId = parseInt(event.currentTarget.dataset.genre);
     if (isValidGenreId(genreId)) {
@@ -680,6 +580,8 @@ function menuItemClick(event) {
 
 // id sea valido
 function isValidGenreId(genreId) {
+    // La función devuelve true si el valor no es un número (NaN), de lo contrario, devuelve false
+    // primero se verifica que genreid no sea nulo y que no sea undefined y luego devuelve true si el genreid es un numero.
     return genreId !== null && genreId !== undefined && !isNaN(genreId);
 }
 
@@ -690,7 +592,6 @@ function redirectToPage(url) {
 
 // maneja el filtrado por genero, leyemos la url para saber si tiene un genero y si en el caso que tenga
 // se filtra el genero y asi mismo se crea la pagina o redirige a la pagina segun el genero.
-
 function filterGenrepage() {
     // urlsearchparams permite acceder a los parametros de la url y tomar lo que necesitemos o todo.
     const urlParams = new URLSearchParams(window.location.search);
@@ -698,7 +599,7 @@ function filterGenrepage() {
     const genreParam = urlParams.get('genre');
     // si el id genero es valido
     if (isValidGenreId(genreParam)) {
-        // lo pasamos a un int y lo filtramos por el genero.
+        // lo parsea a un int y lo filtramos por el genero.
         filterByGenre(parseInt(genreParam));
     }
 }
